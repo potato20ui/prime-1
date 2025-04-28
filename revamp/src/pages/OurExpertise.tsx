@@ -1,8 +1,8 @@
 import { FC, useState } from "react";
 import { motion } from "framer-motion";
 import { FiChevronDown, FiChevronUp, FiPhone } from "react-icons/fi";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import Navbar from "@/components/Landingpage/Navbar";
+import Footer from "@/components/Landingpage/Footer";
 
 const OurExpertise: FC = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
