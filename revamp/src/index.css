@@ -1,0 +1,41 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* Define Gotham Book (Regular) */
+@font-face {
+  font-family: "Gotham Book";
+  src: url("./fonts/Gotham-Book.woff2") format("woff2"),
+       url("./fonts/Gotham-Book.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Define Gotham Bold */
+@font-face {
+  font-family: "Gotham Bold";
+  src: url("./fonts/Gotham-Bold.woff2") format("woff2"),
+       url("./fonts/Gotham-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Apply Gotham Book as default */
+body {
+  font-family: "Gotham Book", Arial, sans-serif;
+}
+
+/* Apply Gotham Bold for headings or strong text */
+h1, h2, h3, h4, h5, h6, .gotham-bold {
+  font-family: "Gotham Bold", Arial, sans-serif;
+  font-weight: bold; /* Ensures bold styling */
+}
+
+
+.dragging {
+  scroll-behavior: auto !important;
+  user-select: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
