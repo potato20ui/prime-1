@@ -1,21 +1,19 @@
-import Navbar from './components/ui/Navbar';  // Ensure correct import path
-import Footer from './components/ui/Footer';  // Ensure correct import path
-import ServicesPage from './pages/ServicesPage';
-import Homepage from './pages/Homepage';  // Assuming your homepage is in Homepage.tsx
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';  // Import router components
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import ExpertisePage from './pages/Expertise';
 
-function App() {
+const App = () => {
   return (
     <Router>
-      {/* Wrap the Routes with the Navbar and Footer */}
-      <Navbar />
+      <Navbar /> {/* Add Navbar */}
       <Routes>
-        <Route path="/" element={<Homepage />} />  {/* This will render Homepage component on / */}
-        <Route path="/services" element={<ServicesPage />} />  {/* This will render ServicesPage component */}
+        <Route path="/expertise" element={<ExpertisePage />} />
+        {/* Add more routes here if necessary */}
       </Routes>
-      <Footer />
+      <Footer /> {/* Add Footer here */}
     </Router>
   );
-}
+};
 
 export default App;
