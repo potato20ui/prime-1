@@ -134,7 +134,7 @@ const Navbar = () => {
             <img 
               src="/prime-logo.png" 
               alt="PRIME Philippines Logo" 
-              className={`h-12 md:h-16 p-1 transition-all duration-300 ${isHomePage && !scrolled ? "brightness-0 invert" : ""}`}
+              className={`h-12 md:h-16 p-1 transition-all duration-300 ${isHomePage && !scrolled ? "" : ""}`}
             />
           </Link>
         </motion.div>
@@ -174,7 +174,7 @@ const Navbar = () => {
               aria-expanded={aboutDropdown}
               aria-haspopup="true"
             >
-              About Us {dropdownIcon(aboutDropdown)}
+ About Us {dropdownIcon(aboutDropdown)}
             </button>
             <AnimatePresence>
               {aboutDropdown && (

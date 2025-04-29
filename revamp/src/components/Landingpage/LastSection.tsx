@@ -1,37 +1,41 @@
-// components/CallBookingSection.tsx
+// components/InquireNowSection.tsx
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
-export default function CallBookingSection() {
+export default function InquireNowSection() {
   const navigate = useNavigate();
 
-  const handleViewProperties = () => {
-    navigate("/properties");
+  const handleInquireNow = () => {
+    navigate("/contact");
   };
 
   return (
-    <section className="bg-[#003366] text-white text-center py-12 px-4 md:py-16 md:px-6 font-gotham-book">
+    <section className="relative bg-[#0B3B71] text-white py-16 px-4 md:py-20 md:px-6 font-gotham-book overflow-hidden">
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="max-w-2xl mx-auto"
+        transition={{ duration: 0.7 }}
+        className="max-w-3xl mx-auto text-center"
       >
-        <p className="text-pt-sm md:text-pt-base mb-3 font-normal">
-          Want to Book a Call?
+        <p className="text-[12pt] md:text-[14pt] mb-4 font-normal tracking-wide">
+          Have Questions or Need Assistance?
         </p>
-        <h2 className="text-[20pt]  mb-6 leading-tight font-gotham-bold">
-          Ready to make your step in real estate? Book Now.
+        <h2 className="text-[24pt] md:text-[32pt] mb-8 leading-snug font-gotham-bold">
+          Let's Get You Started — <br className="hidden md:block" /> Inquire Now!
         </h2>
         <Button
-          onClick={handleViewProperties}
-          className="bg-yellow-500 hover:bg-yellow-400 text-black font-gotham-bold px-6 py-2.5 rounded-full transition-colors duration-300 cursor-pointer shadow-lg"
+          onClick={handleInquireNow}
+          className="bg-white text-[#0B3B71] hover:bg-[#0B3B71] hover:text-white font-gotham-bold text-[12pt] md:text-[14pt] px-8 py-3 rounded-full transition-all duration-300 shadow-xl"
         >
-          View Properties
+          Inquire Now
         </Button>
       </motion.div>
+
+      {/* Decorative Blurs */}
+      <div className="absolute top-0 left-0 w-32 h-32 bg-white/10 rounded-full blur-3xl opacity-50" />
+      <div className="absolute bottom-0 right-0 w-40 h-40 bg-white/10 rounded-full blur-3xl opacity-50" />
     </section>
   );
 }

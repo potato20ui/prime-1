@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#1a2a44] text-[#cbd5e1] px-6 py-20 font-[Gotham Book]">
+    <footer className="bg-[#181D1E] text-[#cbd5e1] px-6 py-20 font-[Gotham Book]">
       <div className="max-w-[1400px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-16 sm:gap-20 lg:gap-32">
 
         {/* Left Section - Contact Info */}
@@ -18,17 +18,18 @@ export default function Footer() {
           transition={{ duration: 0.6 }}
           className="space-y-8 text-[12pt]"
         >
-          <Link to="/" className="focus:outline-none" onClick={() => window.scrollTo(0, 0)}>
+         <Link to="/" className="focus:outline-none" onClick={() => window.scrollTo(0, 0)}>
             <motion.img
               src="/prime-logo.png"
               alt="PRIME Philippines logo"
-              className="w-56 h-auto object-contain hover:opacity-90 transition-opacity brightness-0 invert"
+              className="w-56 h-auto object-contain hover:opacity-90 transition-opacity"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
+              style={{ filter: 'brightness(0) invert(1)' }}  // This will turn the image white
             />
           </Link>
 
-          <address className="not-italic space-y-4 leading-relaxed mt-8 bg-[#1a2a44] text-[#cbd5e1]"> 
+          <address className="not-italic space-y-4 leading-relaxed mt-8 bg-[#181D1E] text-[#cbd5e1]"> 
             <p className="flex items-start gap-3">
               <MapPin size={18} className="mt-0.5 flex-shrink-0" />
               3/F Main CreatWork Ben-Lor IT Center, Diliman, Quezon City, Metro Manila
@@ -57,9 +58,10 @@ export default function Footer() {
           transition={{ duration: 0.6 }}
           className="space-y-6 text-[12pt]"
         >
-          <h2 className="text-[40pt] gotham-bold text-[#fbbf24]">
-            PRIME <span className="text-[#fbbf24]">RADAR</span>
+          <h2 className="text-[40pt] font-bold bg-gradient-to-r from-[#0B3B71] via-[#0B3B71] to-[#EF1C24] text-transparent bg-clip-text">
+            PRIME RADAR
           </h2>
+
           <p className="leading-relaxed max-w-md">
             Get the latest real estate insights, events and news from our newsletter
           </p>
@@ -72,7 +74,7 @@ export default function Footer() {
             />
             <Button
               type="submit"
-              className="bg-[#2a3a6f] text-[#f0f3d9] font-bold px-6 py-4 uppercase tracking-wide text-[12pt] hover:bg-[#1a2a44]"
+              className="bg-[#0B3B71] text-[#f0f3d9] font-bold px-6 py-4 uppercase tracking-wide text-[12pt] hover:bg-[#1a2a44]"
             >
               Subscribe
             </Button>
