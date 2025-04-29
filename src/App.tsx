@@ -1,19 +1,14 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import ExpertisePage from './pages/Expertise';
+// import React from "react";
+import PropertiesPage from "./components/properties"; // 👈 path updated
+import './index.css';
+import './globals.css';
 
-const App = () => {
+function App() {
   return (
-    <Router>
-      <Navbar /> {/* Add Navbar */}
-      <Routes>
-        <Route path="/expertise" element={<ExpertisePage />} />
-        {/* Add more routes here if necessary */}
-      </Routes>
-      <Footer /> {/* Add Footer here */}
-    </Router>
+    <div>
+      <PropertiesPage />
+    </div>
   );
-};
+}
 
 export default App;
