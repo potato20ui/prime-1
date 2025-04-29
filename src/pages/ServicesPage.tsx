@@ -1,4 +1,4 @@
-import { JSX, useState } from 'react';
+import { ReactNode, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, PhoneCall } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -16,7 +16,7 @@ const serviceList: Service[] = [
     { id: 'project', name: 'Project Management' },
 ];
 
-const contentMap: Record<string, JSX.Element> = {
+const contentMap: Record<string, ReactNode> = {
     landlord: (
         <>
             <p className="mb-4 font-medium">
@@ -99,15 +99,10 @@ export default function ServicesPage() {
 
     return (
         <div className="w-full min-h-screen">
-            {/* Header */}
-            {/* Blue Overlay */}
-
-
-            <div className="relative w-full h-[503px] bg-cover bg-center text-white overflow-hidden mb-20" style={{ backgroundImage: 'url(/images/bg2.png)' }}>
+            {/* Banner Header */}
+            <div className="relative w-full h-[503px] bg-cover bg-center text-white mb-20" style={{ backgroundImage: 'url(/images/bg2.png)' }}>
                 <div className="absolute inset-0 bg-black/50" />
-                {/* Blue Overlay */}
-                <div className="absolute inset-0 bg-[#0E406F]/50 transition duration-300"></div>
-
+                <div className="absolute inset-0 bg-[#0E406F]/50 transition duration-300" />
                 <div className="relative z-10 flex flex-col items-center justify-center h-full">
                     <motion.h1
                         initial={{ opacity: 0, y: -50 }}
@@ -123,10 +118,10 @@ export default function ServicesPage() {
                         transition={{ delay: 0.6, duration: 0.8 }}
                         className="mt-4 text-lg"
                     >
-                        <div className="inline-flex items-center px-6 py-3 border-2 border-white rounded-full text-lg font-semibold">
+                        <div className="inline-flex items-center px-6 py-3 border-2 border-white rounded-full font-semibold">
                             <Link to="/" className="hover:underline">Home</Link>
                             <span className="mx-2">/</span>
-                            <span className="font-semibold">Services</span>
+                            <span>Services</span>
                         </div>
                     </motion.div>
                 </div>
@@ -135,13 +130,12 @@ export default function ServicesPage() {
             {/* Main Content */}
             <div className="w-full max-w-[1400px] mx-auto px-4 lg:px-0 grid grid-cols-1 lg:grid-cols-3 gap-8 mb-20">
                 {/* Sidebar */}
-                <div className="space-y-8">
-                    {/* Services List */}
+                <div className="flex flex-col gap-8">
                     <motion.div
                         initial={{ x: -50, opacity: 0 }}
                         animate={{ x: 0, opacity: 1 }}
                         transition={{ duration: 0.6 }}
-                        className="bg-white rounded-lg shadow-lg p-6 h-[530px] w-[450px] overflow-y-auto"
+                        className="bg-white rounded-lg shadow-lg p-6 max-h-[600px] overflow-y-auto"
                     >
                         <h2 className="text-2xl font-bold text-blue-900 mb-4">Services</h2>
                         <div className="h-1 w-24 bg-gradient-to-r from-yellow-400 via-red-500 to-blue-800 rounded-full mb-6" />
@@ -162,19 +156,18 @@ export default function ServicesPage() {
                         </div>
                     </motion.div>
 
-                    {/* Help Box */}
                     <motion.div
                         initial={{ scale: 0.9, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}
                         transition={{ delay: 0.3, duration: 0.5 }}
-                        className="bg-[#0b2c53] text-white rounded-lg shadow-lg p-6 flex flex-col items-center justify-center h-[530px] w-[450px] overflow-y-auto"
+                        className="bg-[#0b2c53] text-white rounded-lg shadow-lg p-6 flex flex-col items-center justify-center"
                     >
                         <div className="flex items-center justify-center w-16 h-16 bg-blue-500 rounded-full mb-4">
                             <PhoneCall size={32} color="white" />
                         </div>
                         <p className="text-2xl font-bold mb-2">Need Help?</p>
                         <p className="text-lg font-semibold mb-6">Call Here</p>
-                        <div className="text-sm space-y-2">
+                        <div className="text-sm space-y-2 text-center">
                             <p>
                                 <strong>Phone:</strong>{" "}
                                 <a href="tel:+63288881000" className="text-blue-300 hover:underline">
@@ -191,7 +184,7 @@ export default function ServicesPage() {
                     </motion.div>
                 </div>
 
-                {/* Selected Service Content */}
+                {/* Content Area */}
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
