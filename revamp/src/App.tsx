@@ -6,6 +6,7 @@ import Contact from "@/pages/Contact"
 import Careers from "@/pages/Careers"
 import Awards from "@/pages/About/Awards"
 import Properties from "@/pages/Properties"
+import {Events} from "@/pages/Events"
 function App() {
   return (
     <Router>
@@ -17,6 +18,7 @@ function App() {
         <Route path="/careers" element={<Careers />} />
         <Route path="/About/awards" element={<Awards />} />
         <Route path="/properties" element={<Properties />} />
+        <Route path="/events" element={<Events />} />
       </Routes>
     </Router>
   )

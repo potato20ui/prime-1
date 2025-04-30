@@ -4,6 +4,7 @@ import Footer from "@/components/Landingpage/Footer";
 import IndustryInsights from "@/components/Landingpage/IndustryInsights";
 import OurServices from "@/components/Landingpage/OurServices";
 import AboutSection from "@/components/Landingpage/AboutSection";
+import BlogSection from "@/components/Landingpage/BlogSection";
 import TrustedPartners from '@/components/Landingpage/TrustedPartners';
 import Testimonials from '@/components/Landingpage/Testimonials';
 import LastSection from '@/components/Landingpage/LastSection';
@@ -16,6 +17,7 @@ function Home() {
       <OurServices />
       <IndustryInsights />
       <AboutSection />
+      <BlogSection />
       <TrustedPartners />
       <Testimonials />
       <LastSection />
