@@ -1,1 +1,0 @@
-export { GroupWrapperByAnima } from "./GroupWrapperByAnima";

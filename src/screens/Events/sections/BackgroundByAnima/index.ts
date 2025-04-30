@@ -1,1 +1,0 @@
-export { BackgroundByAnima } from "./BackgroundByAnima";
