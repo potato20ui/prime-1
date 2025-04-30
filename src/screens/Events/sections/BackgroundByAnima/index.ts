@@ -1,0 +1,1 @@
+export { BackgroundByAnima } from "./BackgroundByAnima";
