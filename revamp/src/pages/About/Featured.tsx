@@ -7,16 +7,19 @@ const awards = [
     title: "Andy Smith",
     date: "Los Angeles, CA",
     image: "/awards1.jpg",
+    backgroundImage: "/Property/Properties.png", 
   },
   {
     title: "Samantha Lee",
     date: "Makati City, PH",
     image: "/awards2.jpg",
+    backgroundImage: "/Property/CommercialLots.png", 
   },
   {
     title: "Carlos Rivera",
     date: "Cebu City, PH",
-    image: "awards3.jpg",
+    image: "/awards3.jpg",
+    backgroundImage: "/Property/IndustrialLot.png",
   },
 ];
 
@@ -89,27 +92,28 @@ export default function Featured() {
 
           {/* Testimonial Animation */}
           <AnimatePresence mode="wait">
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: isInView ? 1 : 0, x: 0 }}
-              exit={{ opacity: 0, x: -50 }}
-              transition={{ duration: 0.5 }}
-              className="bg-[#043A6B] rounded-2xl p-8 md:p-10 text-white flex flex-col md:flex-row items-center gap-6 md:gap-10"
-            >
-              <img
-                src={awards[index].image}
-                alt={`${awards[index].title}'s photo`}
-                className="w-24 h-24 md:w-28 md:h-28 rounded-full object-cover border-4 border-white shadow-lg"
-              />
-              <div className="text-base md:text-lg leading-relaxed text-center md:text-left max-w-xl font-gotham-book">
-                <p className="font-gotham-bold text-lg">
-                  {awards[index].title}
-                </p>
-                <p className="text-sm text-[#A3B1C2]">{awards[index].date}</p>
-              </div>
-            </motion.div>
-          </AnimatePresence>
+  <motion.div
+    key={index}
+    initial={{ opacity: 0, x: 50 }}
+    animate={{ opacity: isInView ? 1 : 0, x: 0 }}
+    exit={{ opacity: 0, x: -50 }}
+    transition={{ duration: 0.5 }}
+    style={{
+      backgroundImage: `url(${awards[index].backgroundImage})`, // Dynamically set background image
+    }}
+    className="bg-cover bg-center rounded-2xl p-8 md:p-10 text-white flex flex-col md:flex-row items-center gap-6 md:gap-10"
+  >
+    <img
+      src={awards[index].image}
+      alt={`${awards[index].title}'s photo`}
+      className="w-24 h-24 md:w-28 md:h-28 rounded-full object-cover border-4 border-white shadow-lg"
+    />
+    <div className="text-base md:text-lg leading-relaxed text-center md:text-left max-w-xl font-gotham-book">
+      <p className="font-gotham-bold text-lg">{awards[index].title}</p>
+      <p className="text-sm text-[#A3B1C2]">{awards[index].date}</p>
+    </div>
+  </motion.div>
+</AnimatePresence>
 
           {/* Right Arrow */}
           <button

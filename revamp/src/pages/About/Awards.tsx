@@ -1,5 +1,6 @@
 import React from "react";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, Link } from "react-router-dom";
+import { motion } from "framer-motion"; 
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer";
 import Featured from "./Featured";
@@ -36,23 +37,45 @@ const Awards: React.FC = () => {
     yearParam && awardsData[yearParam] ? [yearParam] : filteredYears;
 
   return (
-    <div className="font-sans bg-gray-100 min-h-screen">
+    <div className=" bg-gray-100 min-h-screen">
       <Navbar /> {/* Navbar added here */}
-      <header className="bg-blue-900 text-white py-0 text-center relative">
-        <div
-          className="w-full h-[500px] bg-cover bg-center opacity-60"
-          style={{
-            backgroundImage: 'url("/awards.png")', // Path to your header background image
-            backgroundSize: "cover", // Maintain aspect ratio
-            backgroundPosition: "center center", // Center the image within the header
-          }}
-        ></div>
+     {/* Header Section */}
+<section className="relative mb-10">
+  <div
+    className="w-full h-[500px] rounded-lg overflow-hidden relative group"
+    style={{
+      backgroundImage: `url("/awards.png")`, // Background image for the banner
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+    }}
+  >
+    {/* Overlay */}
+    <div className="absolute inset-0 bg-PRIMEblue opacity-50"></div> {/* Updated to match Careers color */}
 
-        {/* Text positioned on top of the image */}
-        <h1 className="absolute inset-0 text-4xl font-bold z-10 text-center flex justify-center items-center text-white">
-          AWARDS & RECOGNITION
-        </h1>
-      </header>
+    {/* Centered Title and Breadcrumb with animation */}
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4"
+    >
+      <h1 className="text-[36pt] sm:text-[48pt] font-bold">AWARDS & RECOGNITION</h1>
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+        className="inline-flex items-center px-[40px] py-[12px] border-2 border-white rounded-full text-lg font-semibold mt-4"
+      >
+        <Link to="/" className="hover:underline">
+          Home
+        </Link>
+        <span className="mx-2">/</span>
+        <span className="font-semibold">Awards</span>
+      </motion.div>
+    </motion.div>
+  </div>
+</section>
+
       <Featured />
       {/* 🗓 Awards by Year */}
       {displayYears.map((year) => (
@@ -66,7 +89,7 @@ const Awards: React.FC = () => {
             {awardsData[year].map((award, idx) => (
               <div
                 key={idx}
-                className="w-[340px] h-[379px] bg-white rounded-lg shadow-md p-4 text-center"
+                className="w-[340px] h-[450px] bg-white rounded-lg shadow-md p-4 text-center"
               >
                 {award.img && (
                   <img

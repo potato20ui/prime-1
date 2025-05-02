@@ -67,43 +67,31 @@ const ExpertisePage = () => {
     <div className="w-full min-h-screen bg-gray-50">
       <Navbar />
 
-      {/* Banner Section */}
-      <section className="relative mb-10">
-        <div
-          className="w-full h-[503px] rounded-lg overflow-hidden relative group"
-          style={{
-            backgroundImage:
-              "",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        >
-          <div className="absolute inset-0 bg-[#0E406F]/40"></div>
-
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4">
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="text-[36pt] sm:text-[48pt] font-bold"
-            >
-              EXPERTISE
-            </motion.h1>
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, ease: "easeOut" }}
-              className="inline-flex items-center px-6 py-3 border-2 border-white rounded-full text-lg font-semibold mt-4"
-            >
-              <Link to="/" className="hover:underline">
-                Home
-              </Link>
-              <span className="mx-2">/</span>
-              <span className="font-semibold">Expertise</span>
-            </motion.div>
-          </div>
-        </div>
-      </section>
+       {/* Banner Section */}
+                <section className="relative mb-10">
+              <div className="w-full h-[500px] bg-[url('/Property/Properties.png')] bg-cover bg-center rounded-lg relative group">
+                 {/* Overlay */}
+                 <div className="absolute inset-0 bg-[#0E406F]/30 transition duration-300"></div>
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                  className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4"
+                >
+                  <h1 className="text-[36pt] sm:text-[48pt] font-bold">EXPERTISE</h1>
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1 }}
+                    className="inline-flex items-center px-6 py-3 border-2 border-white rounded-full text-lg font-semibold mt-4"
+                  >
+                    <Link to="/" className="hover:underline">Home</Link>
+                    <span className="mx-2">/</span>
+                    <span className="font-semibold">Expertise</span>
+                  </motion.div>
+                </motion.div>
+              </div>
+            </section>
 
       {/* Content Section */}
       <section className="px-6 lg:px-12 py-16 max-w-[1400px] mx-auto">

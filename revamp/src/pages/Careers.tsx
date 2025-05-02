@@ -2,7 +2,8 @@ import Navbar from "@/components/Navbar/Navbar";  // Import Navbar component
 import Footer from "@/components/Footer";  // Import Footer component
 import { Button } from "@/components/ui/button";
 import { MapPin, Clock } from "lucide-react";
-import { useNavigate } from "react-router-dom"; // 👈 Add this
+import { motion } from "framer-motion"; 
+import { useNavigate, Link } from "react-router-dom"; // 👈 Add this
 import careersImg from "../assets/careers.jpg";
 
 const positions = Array(7).fill({
@@ -20,26 +21,44 @@ export default function Careers() {
       {/* Navbar */}
       <Navbar />
 
-      {/* Header */}
-      <div className="relative h-[500px] w-full">
-        {/* Background Image */}
-        <img
-          src={careersImg}
-          alt="Careers Background"
-          className="w-full h-full object-cover"
-        />
+{/* Banner Section */}
+<section className="relative mb-10">
+  <div
+    className="w-full h-[503px] rounded-lg overflow-hidden relative group"
+    style={{
+      backgroundImage: `url(${careersImg})`, // Dynamically set the background image
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+    }}
+  >
+    {/* Overlay */}
+    <div className="absolute inset-0"></div> {/* Updated to match Careers color */}
 
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-PRIMEblue opacity-70"></div>
-
-        {/* Text Content */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
-          <h1 className="text-6xl font-bold">CAREERS</h1>
-          <div className="border items-center justify-center px-[40px] py-[12px] rounded-4xl  mt-2">
-            <p className="text-xl">Home / Careers</p>
-          </div>
-        </div>
-      </div>
+    {/* Text Content */}
+    <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4">
+      <motion.h1
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="text-[36pt] sm:text-[48pt] font-bold"
+      >
+        CAREERS
+      </motion.h1>
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+        className="inline-flex items-center px-6 py-3 border-2 border-white rounded-full text-lg font-semibold mt-4"
+      >
+        <Link to="/" className="hover:underline">
+          Home
+        </Link>
+        <span className="mx-2">/</span>
+        <span className="font-semibold">Careers</span>
+      </motion.div>
+    </div>
+  </div>
+</section>
 
       {/* Intro Section */}
       <section className="max-w-[1400px] mx-auto px-4 py-10">

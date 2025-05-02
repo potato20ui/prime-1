@@ -37,38 +37,44 @@ export default function Contact() {
   return (
     <div  id="top" className="bg-[#f5f5f5] min-h-screen text-[#003366]">
       <Navbar />
-      <main className="w-full mx-auto">
+      <main className="w-full mx-auto  mb-10">
 
         {/* Banner Section */}
-        <section className="relative mb-10">
-          <div
-            className="w-full h-[500px] rounded-lg overflow-hidden relative group"
-            style={{ backgroundImage: 'url(/Contact.png)', backgroundSize: 'cover', backgroundPosition: 'center' }}
-          >
-            {/* Overlay */}
-            <div className="absolute inset-0 bg-[#0E406F]/30 transition duration-300"></div>
+<section className="relative mb-10">
+  <div
+    className="w-full h-[500px] rounded-lg overflow-hidden relative group"
+    style={{
+      backgroundImage: `url(/Contact.png)`, // Background image for the banner
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+    }}
+  >
+    {/* Overlay */}
+    <div className="absolute inset-0 bg-PRIMEblue opacity-50"></div> {/* Updated to match Careers color */}
 
-            {/* Centered Title and Breadcrumb with animation */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4"
-            >
-              <h1 className="text-[36pt] sm:text-[48pt] font-bold">CONTACT US</h1>
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, ease: "easeOut" }}
-                className="inline-flex items-center px-6 py-3 border-2 border-white rounded-full text-lg font-semibold mt-4"
-              >
-                <Link to="/" className="hover:underline">Home</Link>
-                <span className="mx-2">/</span>
-                <span className="font-semibold">Contact</span>
-              </motion.div>
-            </motion.div>
-          </div>
-        </section>
+    {/* Centered Title and Breadcrumb with animation */}
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4"
+    >
+      <h1 className="text-[36pt] sm:text-[48pt] font-bold">CONTACT US</h1>
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+        className="inline-flex items-center px-[40px] py-[12px] border-2 border-white rounded-full text-lg font-semibold mt-4"
+      >
+        <Link to="/" className="hover:underline">
+          Home
+        </Link>
+        <span className="mx-2">/</span>
+        <span className="font-semibold">Contact</span>
+      </motion.div>
+    </motion.div>
+  </div>
+</section>
 
         {/* Contact Cards */}
         <section className="mb-14 max-w-[1400px] mx-auto">
@@ -179,7 +185,7 @@ export default function Contact() {
                           <MapPin className="w-4 h-4" />
                           <span className="font-medium">{location.city}</span>
                         </div>
-                        <span className={`text-xs px-4 py-2 rounded-full ${
+                        <span className={`text-sm px-4 py-2 rounded-full ${
                           activeLocation === location.city
                             ? "bg-white text-[#003366]"
                             : "bg-[#003366] text-white"
@@ -217,18 +223,6 @@ export default function Contact() {
                   <p className="font-medium text-[11pt] truncate">{current?.city} Office</p>
                 </div>
               </motion.div>
-
-              <div className="mt-4 text-center">
-                <a
-                  href={current?.map.replace('embed', 'search')}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center text-[11pt] text-[#003366] hover:underline"
-                >
-                  <MapPin className="w-4 h-4 mr-1" />
-                  Open in Google Maps
-                </a>
-              </div>
             </div>
           </motion.div>
         </section>
