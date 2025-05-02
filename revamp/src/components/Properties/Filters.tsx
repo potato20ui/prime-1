@@ -15,7 +15,7 @@ interface FiltersProps {
 
 export default function Filters({ filters, onFilterChange }: FiltersProps) {
   return (
-    <div className="relative z-10 bg-white bg-white -mt-20 max-w-4xl border rounded-lg mx-auto">
+    <div className="relative z-10 bg-white -mt-20 max-w-4xl border rounded-lg mx-auto">
       <div className="bg-white shadow-lg rounded-xl p-6 flex flex-wrap gap-6 items-center justify-between">
         <div className="flex flex-wrap gap-4 items-center">
           <select
