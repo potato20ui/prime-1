@@ -4,19 +4,19 @@ import { FaChevronLeft, FaChevronRight, FaUserCircle } from "react-icons/fa";
 
 const awards = [
   {
-    title: "Andy Smith",
-    date: "Los Angeles, CA",
-    image: "/awards1.jpg",
+    title: "Asia Leaders Award",
+    date: "January 2022",
+    backgroundImage: "/awards1.png",
   },
   {
-    title: "Samantha Lee",
-    date: "Makati City, PH",
-    image: "/awards2.jpg",
+    title: "Golden Globe Annual Awards",
+    date: "November 2019",
+    backgroundImage: "/awards2.png",
   },
   {
-    title: "Carlos Rivera",
-    date: "Cebu City, PH",
-    image: "awards3.jpg",
+    title: "Global Excellence Awards",
+    date: "November 2019",
+    backgroundImage: "/awards3.png",
   },
 ];
 
@@ -64,24 +64,18 @@ export default function Featured() {
       ref={sectionRef}
       className="relative w-full bg-white py-10 px-4 sm:px-8 md:px-10 lg:px-20 font-gotham-book"
     >
-      <div className="max-w-[1400px] mx-auto bg-[#E6F0FF] rounded-3xl shadow-xl p-8 md:p-12">
-        {/* Section Tag */}
-        <div className="flex justify-center items-center mb-6 text-[#0B3B71] font-bold text-sm tracking-wide space-x-2">
-          <FaUserCircle className="text-[xl]" />
-          <span>CLIENT TESTIMONIALS</span>
-        </div>
-
+      <div className="max-w-[1600px] mx-auto rounded-3xl">
         {/* Heading */}
         <h2 className="text-[22pt] font-gotham-bold text-center text-[#0a0a0a] mb-10">
-          What Our Clients Say
+          Featured Awards
         </h2>
 
         {/* Carousel Container */}
-        <div className="relative max-w-2xl mx-auto px-6 sm:px-10">
+        <div className="relative max-w-[800px] h-[450px] mx-auto">
           {/* Left Arrow */}
           <button
             onClick={handlePrev}
-            className="absolute -left-8 top-1/2 -translate-y-1/2 w-9 h-9 bg-white border border-gray-300 rounded-full flex justify-center items-center shadow-lg hover:bg-[#0B3B71] hover:text-white transition"
+            className="absolute -left-15 top-1/2 -translate-y-1/2 w-9 h-9 bg-white border border-gray-300 rounded-full flex justify-center items-center shadow-lg hover:bg-[#0B3B71] hover:text-white transition"
             aria-label="Previous testimonial"
           >
             <FaChevronLeft className="text-black hover:text-white transition-colors" />
@@ -95,15 +89,13 @@ export default function Featured() {
               animate={{ opacity: isInView ? 1 : 0, x: 0 }}
               exit={{ opacity: 0, x: -50 }}
               transition={{ duration: 0.5 }}
-              className="bg-[#043A6B] rounded-2xl p-8 md:p-10 text-white flex flex-col md:flex-row items-center gap-6 md:gap-10"
+              style={{
+                backgroundImage: `url(${awards[index].backgroundImage})`,
+              }}
+              className=" rounded-2xl h-[450px] text-white flex flex-col md:flex-row items-end"
             >
-              <img
-                src={awards[index].image}
-                alt={`${awards[index].title}'s photo`}
-                className="w-24 h-24 md:w-28 md:h-28 rounded-full object-cover border-4 border-white shadow-lg"
-              />
-              <div className="text-base md:text-lg leading-relaxed text-center md:text-left max-w-xl font-gotham-book">
-                <p className="font-gotham-bold text-lg">
+              <div className="md:text-lg leading-relaxed text-center md:text-left h-[100px] font-gotham-book w-full bg-PRIMEblack/70 transition inset-0 rounded-b-2xl px-[30px] py-[22px]">
+                <p className="font-gotham-bold text-xl">
                   {awards[index].title}
                 </p>
                 <p className="text-sm text-[#A3B1C2]">{awards[index].date}</p>
@@ -114,7 +106,7 @@ export default function Featured() {
           {/* Right Arrow */}
           <button
             onClick={handleNext}
-            className="absolute -right-8 top-1/2 -translate-y-1/2 w-9 h-9 bg-white border border-gray-300 rounded-full flex justify-center items-center shadow-lg hover:bg-[#0B3B71] hover:text-white transition"
+            className="absolute -right-15 top-1/2 -translate-y-1/2 w-9 h-9 bg-white border border-gray-300 rounded-full flex justify-center items-center shadow-lg hover:bg-[#0B3B71] hover:text-white transition"
             aria-label="Next testimonial"
           >
             <FaChevronRight className="text-black hover:text-white transition-colors" />

@@ -3,12 +3,12 @@ import { useSearchParams } from "react-router-dom";
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer";
 import Featured from "./Featured";
+import awardsImg from "/awards.png";
 
 interface Award {
   img: string;
   title: string;
 }
-
 
 const awardsData: Record<string, Award[]> = {
   2024: [
@@ -21,7 +21,7 @@ const awardsData: Record<string, Award[]> = {
     { img: "award1.png", title: "Asia Leaders Awards" },
     { img: "award2.png", title: "Golden Globe Annual Awards" },
     { img: "award3.png", title: "Global Excellence Awards" },
-    { img: "award2.png", title: "Innovator of the Year" }
+    { img: "award2.png", title: "Innovator of the Year" },
   ],
 };
 
@@ -38,21 +38,26 @@ const Awards: React.FC = () => {
   return (
     <div className="font-sans bg-gray-100 min-h-screen">
       <Navbar /> {/* Navbar added here */}
-      <header className="bg-blue-900 text-white py-0 text-center relative">
-        <div
-          className="w-full h-[500px] bg-cover bg-center opacity-60"
-          style={{
-            backgroundImage: 'url("/awards.png")', // Path to your header background image
-            backgroundSize: "cover", // Maintain aspect ratio
-            backgroundPosition: "center center", // Center the image within the header
-          }}
-        ></div>
+      {/* Header */}
+      <div className="relative h-[500px] w-full">
+        {/* Background Image */}
+        <img
+          src={awardsImg}
+          alt="Careers Background"
+          className="w-full h-full object-cover"
+        />
 
-        {/* Text positioned on top of the image */}
-        <h1 className="absolute inset-0 text-4xl font-bold z-10 text-center flex justify-center items-center text-white">
-          AWARDS & RECOGNITION
-        </h1>
-      </header>
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-PRIMEblue opacity-70"></div>
+
+        {/* Text Content */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
+          <h1 className="text-6xl font-bold uppercase">Awards & Recognition</h1>
+          <div className="border items-center justify-center px-[40px] py-[12px] rounded-4xl  mt-2">
+            <p className="text-xl">Home / Awards & Recognition </p>
+          </div>
+        </div>
+      </div>
       <Featured />
       {/* 🗓 Awards by Year */}
       {displayYears.map((year) => (
