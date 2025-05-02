@@ -45,7 +45,7 @@ html {
   scroll-behavior: smooth;
 }
 
-:root {
+@theme {
   --color-PRIMEblue: #003366;
   --color-PRIMEblack: #181d1e;
   --color-PRIMEyellow: #ffbf00;
@@ -55,17 +55,19 @@ html {
   --color-PRIMElightgray: #b6babe;
 }
 
-/* for main titles */
-h1 {
-  font-size: 60px;
-}
+@layer base {
+  /* for main titles */
+  h1 {
+    font-size: 60px;
+  }
 
-/* for sub titles */
-h2 {
-  font-size: 48px;
-}
+  /* for sub titles */
+  h2 {
+    font-size: 48px;
+  }
 
-/* for body/content */
-h6 {
-  font-size: 20px;
+  /* for body/content */
+  h6 {
+    font-size: 20px;
+  }
 }
