@@ -1,19 +1,14 @@
 import React from "react";
 import { useSearchParams } from "react-router-dom";
-import Navbar from "@/components/Landingpage/Navbar";
-import Footer from "@/components/Landingpage/Footer";
+import Navbar from "@/components/Navbar/Navbar";
+import Footer from "@/components/Footer";
+import Featured from "./Featured";
 
 interface Award {
   img: string;
   title: string;
 }
 
-const featuredAwards: Award[] = [
-  { img: "award1.png", title: "Top Property Consultancy 2024" },
-  { img: "award2.png", title: "Innovation in Real Estate 2023" },
-  { img: "award3.png", title: "Best Workplace Culture" },
-  { img: "award1.png", title: "Sustainability Excellence Award" },
-];
 
 const awardsData: Record<string, Award[]> = {
   2024: [
@@ -26,7 +21,7 @@ const awardsData: Record<string, Award[]> = {
     { img: "award1.png", title: "Asia Leaders Awards" },
     { img: "award2.png", title: "Golden Globe Annual Awards" },
     { img: "award3.png", title: "Global Excellence Awards" },
-    { img: "award2.png", title: "Innovator of the Year" },
+    { img: "award2.png", title: "Innovator of the Year" }
   ],
 };
 
