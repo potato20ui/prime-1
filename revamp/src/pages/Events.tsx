@@ -1,8 +1,8 @@
   import { useState, useEffect, JSX } from "react";
   import { Button } from "@/components/ui/button";
   import { Input } from "@/components/ui/input";
-  import Navbar from "@/components/Landingpage/Navbar";
-  import Footer from "@/components/Landingpage/Footer";
+  import Navbar from "@/components/Navbar/Navbar";
+  import Footer from "@/components/Footer";
   
   // Navigation menu items data
   

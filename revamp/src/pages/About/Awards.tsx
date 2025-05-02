@@ -1,7 +1,7 @@
 import React from "react";
 import { useSearchParams } from "react-router-dom";
-import Navbar from "@/components/Landingpage/Navbar";
-import Footer from "@/components/Landingpage/Footer";
+import Navbar from "@/components/Navbar/Navbar";
+import Footer from "@/components/Footer";
 
 interface Award {
   img: string;

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { FaCheck, FaInfoCircle } from "react-icons/fa";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const highlights = [
   {
@@ -35,6 +35,12 @@ const steps = [
   },
 ];
 
+const stepImages = [
+  "/About/image1.png",
+  "/About/image2.png",
+  "/About/image3.png",
+];
+
 export default function AboutSection() {
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -43,11 +49,10 @@ export default function AboutSection() {
       <div className="max-w-[1400px] mx-auto space-y-20">
         {/* Top Label */}
         <motion.div
-          className="flex justify-center items-center mb-8 text-[#0B3B71] font-bold text-sm tracking-wide space-x-2"
-          whileInView={{ opacity: 1 }}
-          initial={{ opacity: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.5 }} // Shorter duration for faster animation
+          className="flex justify-center items-center text-[#0B3B71] font-bold text-sm tracking-wide space-x-2"
+          initial={{ opacity: 0, y: -10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
         >
           <FaInfoCircle className="text-xl" />
           <span>About PRIME</span>
@@ -56,129 +61,119 @@ export default function AboutSection() {
         {/* Heading */}
         <motion.div
           className="text-center space-y-2"
-          whileInView={{ opacity: 1 }}
-          initial={{ opacity: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
+          initial={{ opacity: 0, y: -10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
         >
-          <h2 className="text-[20pt] font-[Gotham Bold] text-[#0a0a0a] max-w-xl mx-auto">
+          <h2 className="text-[24pt] font-[Gotham Bold] text-[#0a0a0a] max-w-3xl mx-auto leading-tight">
             Why Choose{" "}
-            <a href="#" className="text-[#1e3a66] hover:underline transition">
+            <a href="#" className="text-[#1e3a66] underline-offset-2 hover:underline transition">
               PRIME Philippines
             </a>{" "}
             for Your Commercial Real Estate Needs?
           </h2>
         </motion.div>
 
-        {/* Highlight Section with Image */}
+        {/* Highlight Section */}
         <motion.div
-          className="relative max-w-[1200px] mx-auto overflow-hidden rounded-2xl shadow-lg group transition-all duration-300 hover:scale-[1.01]"
+          className="relative flex flex-col md:flex-row gap-10 items-center max-w-[1200px] mx-auto rounded-2xl overflow-hidden shadow-xl bg-white group transition-all duration-300"
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          initial={{ opacity: 0, y: 50 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.8 }} // Faster transition
+          transition={{ duration: 0.6 }}
         >
           <img
             src="/About.png"
             alt="Modern interior"
-            className="w-full h-[500px] object-cover"
+            className="w-full md:w-[55%] h-[400px] md:h-full object-cover"
           />
-          <div className="absolute top-1/2 right-6 transform -translate-y-1/2 bg-white rounded-xl p-6 w-full max-w-xs shadow-md">
-            <ul className="space-y-5 text-xs">
-              {highlights.map((item, index) => (
-                <li key={index} className="flex gap-2 items-start">
-                  <FaCheck className="text-[#1e3a66] mt-[3px]" />
-                  <div>
-                    <p className="text-sm font-semibold text-[#0a0a0a] mb-1">
-                      {item.title}
-                    </p>
-                    <p className="text-gray-500 leading-snug">{item.description}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
+          <div className="flex-1 p-6 md:p-10 space-y-5">
+            {highlights.map((item, index) => (
+              <motion.div
+                key={index}
+                whileHover={{ scale: 1.02 }}
+                className="flex gap-3 items-start group"
+              >
+                <FaCheck className="text-[#1e3a66] mt-1 shrink-0" />
+                <div>
+                  <p className="text-md font-semibold text-[#0a0a0a]">
+                    {item.title}
+                  </p>
+                  <p className="text-sm text-gray-600">{item.description}</p>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </motion.div>
 
         {/* Subheading */}
         <motion.div
-          className="text-center px-4"
-          whileInView={{ opacity: 1 }}
-          initial={{ opacity: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
+          className="text-center"
+          initial={{ opacity: 0, y: -10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <h3 className="text-[20pt] font-[Gotham Bold] text-[#0a0a0a] max-w-md mx-auto leading-relaxed">
+          <h3 className="text-[20pt] font-[Gotham Bold] text-[#0a0a0a] max-w-md mx-auto">
             Discover the{" "}
             <span className="text-[#1e3a66] font-semibold">advantages</span> and exclusive benefits
           </h3>
         </motion.div>
 
-        {/* Steps Section */}
-        <div className="flex flex-col md:flex-row items-start justify-center gap-10 max-w-[1200px] mx-auto mt-12 h-[500px]">
-          {/* Left: Steps List */}
+        {/* Step Section */}
+        <div className="flex flex-col md:flex-row items-start justify-between gap-10 max-w-[1200px] mx-auto mt-10">
+          {/* Steps List */}
           <motion.div
-            className="space-y-6 w-full md:w-[45%] h-full overflow-y-auto pr-2"
-            whileInView={{ opacity: 1 }}
-            initial={{ opacity: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{
-              duration: 0.8, // Shorter duration for faster transitions
-              delay: 0.7,
-              type: "tween", // Smoother transition
-            }}
-            exit={{ opacity: 0 }} // Exit transition when out of view
+            className="space-y-6 w-full md:w-[45%]"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
           >
             {steps.map((step, index) => {
               const isActive = activeIndex === index;
               return (
-                <div
+                <motion.div
                   key={index}
                   onClick={() => setActiveIndex(index)}
-                  className={`cursor-pointer p-4 rounded-lg border-l-4 transition-all duration-300 ${
+                  className={`cursor-pointer p-5 rounded-lg border-l-4 transition-all duration-300 ${
                     isActive
                       ? "border-[#1e3a66] bg-[#f4f7fd]"
                       : "border-gray-300 hover:border-[#1e3a66]"
                   }`}
+                  whileHover={{ scale: 1.01 }}
                 >
                   <p
-                    className={`text-base font-semibold mb-1 transition-colors ${
+                    className={`text-lg font-semibold ${
                       isActive ? "text-[#1e3a66]" : "text-gray-700"
                     }`}
                   >
                     {step.title}
                   </p>
                   <p
-                    className={`text-sm transition-colors ${
+                    className={`text-sm mt-1 ${
                       isActive ? "text-[#0a0a0a]" : "text-gray-500"
                     }`}
                   >
                     {step.description}
                   </p>
-                </div>
+                </motion.div>
               );
             })}
           </motion.div>
 
-          {/* Right: Step Image */}
-          <motion.div
-            className="w-full md:w-[55%] h-full rounded-2xl overflow-hidden shadow-xl transform transition-all duration-300 hover:scale-[1.015]"
-            whileInView={{ opacity: 1 }}
-            initial={{ opacity: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{
-              duration: 0.8, // Faster transition
-              delay: 0.9,
-              type: "tween", // Smoother transition
-            }}
-            exit={{ opacity: 0 }} // Exit transition when out of view
-          >
-            <img
-              src="https://storage.googleapis.com/a1aa/image/a426004a-28d9-43d8-166b-0e27725f010f.jpg"
-              alt="Client consultation"
-              className="w-full h-full object-cover"
-            />
-          </motion.div>
+          {/* Step Image */}
+          <div className="w-full md:w-[55%] rounded-2xl overflow-hidden shadow-xl relative h-[400px]">
+            <AnimatePresence mode="wait">
+              <motion.img
+                key={activeIndex}
+                src={stepImages[activeIndex]}
+                alt="Step visual"
+                className="w-full h-full object-cover absolute inset-0"
+                initial={{ opacity: 0, scale: 1.05 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.5 }}
+              />
+            </AnimatePresence>
+          </div>
         </div>
       </div>
     </section>

@@ -1,5 +1,5 @@
-import Navbar from "@/components/Landingpage/Navbar";  // Import Navbar component
-import Footer from "@/components/Landingpage/Footer";  // Import Footer component
+import Navbar from "@/components/Navbar/Navbar";  // Import Navbar component
+import Footer from "@/components/Footer";  // Import Footer component
 import { Button } from "@/components/ui/button";
 import { MapPin, Clock } from "lucide-react";
 import { useNavigate } from "react-router-dom"; // 👈 Add this

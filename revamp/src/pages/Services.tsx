@@ -2,8 +2,8 @@ import { useState } from "react";
 import { PhoneCall, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion"; // NEW: for animation
-import Navbar from "@/components/Landingpage/Navbar";
-import Footer from "@/components/Landingpage/Footer";
+import Navbar from "@/components/Navbar/Navbar";
+import Footer from "@/components/Footer";
 
 const ServicesPage = () => {
   const [selectedService, setSelectedService] = useState<number>(1); // Default to Landlord Representation

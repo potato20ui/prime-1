@@ -6,8 +6,15 @@ import { motion } from "framer-motion";
 export default function InquireNowSection() {
   const navigate = useNavigate();
 
-  const handleInquireNow = () => {
+  const handleClick = () => {
     navigate("/contact");
+    // Scroll after a small delay to ensure page has loaded
+    setTimeout(() => {
+      const element = document.getElementById("top");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 100); // 100ms delay to allow page transition
   };
 
   return (
@@ -26,8 +33,8 @@ export default function InquireNowSection() {
           Let's Get You Started — <br className="hidden md:block" /> Inquire Now!
         </h2>
         <Button
-          onClick={handleInquireNow}
-          className="bg-white text-[#0B3B71] hover:bg-[#0B3B71] hover:text-white font-gotham-bold text-[12pt] md:text-[14pt] px-8 py-3 rounded-full transition-all duration-300 shadow-xl"
+          onClick={handleClick}
+          className="bg-white text-[#0B3B71] hover:bg-[#fbbf24] hover:text-[#0B3B71] font-gotham-bold text-[12pt] md:text-[14pt] px-8 py-3 rounded-full transition-all duration-300 shadow-xl"
         >
           Inquire Now
         </Button>

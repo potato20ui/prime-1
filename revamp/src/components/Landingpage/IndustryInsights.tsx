@@ -34,7 +34,7 @@ export default function IndustryInsights({
       title: "Key Office Building Projects",
       desc: "Explore Prime Philippines' commercial spaces for lease, featuring premium office buildings and expert insights to find the perfect workspace for your business.",
       location: "Quezon City",
-      image: "/mockup.png",
+      image: "/Property/mockup.png",
       category: "office",
       filterValue: "Office Spaces"
     },
@@ -43,7 +43,7 @@ export default function IndustryInsights({
       title: "Key Retail Building Projects",
       desc: "From commercial spaces to commercial lots, ranging from big to small, there's a PRIME property that can accommodate new and existing businesses.",
       location: "Quezon City",
-      image: "/mockup.png",
+      image: "/Property/mockup.png",
       category: "retail",
       filterValue: "Retail Spaces"
     },
@@ -52,7 +52,7 @@ export default function IndustryInsights({
       title: "Key Commercial Lots",
       desc: "From commercial spaces to commercial lots, ranging from big to small, there's a PRIME property that can accommodate new and existing businesses.",
       location: "Quezon City",
-      image: "/mockup.png",
+      image: "/Property/mockup.png",
       category: "commercial",
       filterValue: "Commercial Lots"
     },
@@ -61,7 +61,7 @@ export default function IndustryInsights({
       title: "Key Industrial Warehouses",
       desc: "From commercial spaces to commercial lots, ranging from big to small, there's a PRIME property that can accommodate new and existing businesses.",
       location: "Alabang",
-      image: "/mockup.png",
+      image: "/Property/mockup.png",
       category: "warehouse",
       filterValue: "Industrial Warehouse"
     },
@@ -70,7 +70,7 @@ export default function IndustryInsights({
       title: "Key Industrial Lots",
       desc: "From commercial spaces to commercial lots, ranging from big to small, there's a PRIME property that can accommodate new and existing businesses.",
       location: "Bulacan",
-      image: "/mockup.png",
+      image: "/Property/mockup.png",
       category: "industrial",
       filterValue: "Industrial Lots"
     }

@@ -5,6 +5,7 @@ import Services from "@/pages/Services"
 import Contact from "@/pages/Contact"
 import Careers from "@/pages/Careers"
 import Awards from "@/pages/About/Awards"
+import Leadership from "@/pages/About/Leadership"
 import Properties from "@/pages/Properties"
 import {Events} from "@/pages/Events"
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/careers" element={<Careers />} />
         <Route path="/About/awards" element={<Awards />} />
+        <Route path="/About/leadership" element={<Leadership />} />
         <Route path="/properties" element={<Properties />} />
         <Route path="/events" element={<Events />} />
       </Routes>

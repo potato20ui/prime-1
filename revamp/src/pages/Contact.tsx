@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { MapPin, Mail, Phone } from "lucide-react";
 import { motion } from "framer-motion"; 
-import Navbar from "@/components/Landingpage/Navbar";
-import Footer from "@/components/Landingpage/Footer";
+import Navbar from "@/components/Navbar/Navbar";
+import Footer from "@/components/Footer";
 
 const locations = [
   {
@@ -35,7 +35,7 @@ export default function Contact() {
   const current = locations.find((loc) => loc.city === activeLocation);
 
   return (
-    <div className="bg-[#f5f5f5] min-h-screen text-[#003366]">
+    <div  id="top" className="bg-[#f5f5f5] min-h-screen text-[#003366]">
       <Navbar />
       <main className="w-full mx-auto">
 
