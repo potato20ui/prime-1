@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { FaChevronLeft, FaChevronRight, FaUserCircle } from "react-icons/fa";
 
 const awards = [
   {
@@ -17,6 +17,7 @@ const awards = [
     title: "Carlos Rivera",
     date: "Cebu City, PH",
     backgroundImage: "/awards3.jpg",
+    image: "/defaultImage.jpg", // Add a default image or specific image path
   },
 ];
 
@@ -100,11 +101,11 @@ export default function Featured() {
     }}
     className="bg-cover bg-center rounded-2xl p-8 md:p-10 text-white flex flex-col md:flex-row items-center gap-6 md:gap-10"
   >
-    <img
+      src={awards[index].image || "/defaultImage.jpg"} // Ensure fallback if image is undefined
       src={awards[index].image}
       alt={`${awards[index].title}'s photo`}
       className="w-24 h-24 md:w-28 md:h-28 rounded-full object-cover border-4 border-white shadow-lg"
-    />
+    /{">"}
     <div className="text-base md:text-lg leading-relaxed text-center md:text-left max-w-xl font-gotham-book">
       <p className="font-gotham-bold text-lg">{awards[index].title}</p>
       <p className="text-sm text-[#A3B1C2]">{awards[index].date}</p>
