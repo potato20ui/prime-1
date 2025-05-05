@@ -67,7 +67,7 @@ export default function Featured() {
       <div className="max-w-[1400px] mx-auto rounded-3xl p-8 md:p-12">
         {/* Heading */}
         <h2 className="text-[22pt] font-gotham-bold text-center text-[#0a0a0a] mb-5 ">
-          Featured Awards
+          Recent Awards
         </h2>
 
         {/* Carousel Container */}

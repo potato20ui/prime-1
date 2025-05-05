@@ -73,7 +73,7 @@ const Awards: React.FC = () => {
     <div className=" bg-gray-100 min-h-screen">
       <Navbar /> {/* Navbar added here */}
       {/* Header Section */}
-      <section className="relative mb-10">
+      <section className="relative">
         <div
           className="w-full h-[500px] rounded-lg overflow-hidden relative group"
           style={{
