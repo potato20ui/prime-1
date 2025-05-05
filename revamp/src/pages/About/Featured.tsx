@@ -78,7 +78,7 @@ export default function Featured() {
             className="absolute -left-8 top-1/2 -translate-y-1/2 w-9 h-9 bg-PRIMEwhite border border-gray-300 rounded-full flex justify-center items-center shadow-lg hover:bg-PRIMEblue hover:text-white transition"
             aria-label="Previous testimonial"
           >
-            <FaChevronLeft className="text-black hover:text-white transition-colors" />
+            <FaChevronLeft />
           </button>
 
           {/* Testimonial Animation */}
@@ -109,7 +109,7 @@ export default function Featured() {
             className="absolute -right-8 top-1/2 -translate-y-1/2 w-9 h-9 bg-white border border-gray-300 rounded-full flex justify-center items-center shadow-lg hover:bg-[#0B3B71] hover:text-white transition"
             aria-label="Next testimonial"
           >
-            <FaChevronRight className="text-black hover:text-white transition-colors" />
+            <FaChevronRight />
           </button>
 
           {/* Dots */}
