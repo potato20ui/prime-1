@@ -116,7 +116,7 @@ const Awards: React.FC = () => {
       {displayYears.map((year) => (
         <section
           key={year}
-          className="max-w-[1600px] mx-auto mt-10 flex flex-col px-[20px]"
+          className="max-w-[1600px] mx-auto my-10 flex flex-col px-[20px]"
         >
           <p className=" text-3xl text-gray-800 font-semibold relative">
             {year}
