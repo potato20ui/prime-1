@@ -85,10 +85,10 @@ const Awards: React.FC = () => {
           key={year}
           className="max-w-[1600px] mx-auto mt-10 flex flex-col px-[20px]"
         >
-          <h2 className="text-2xl text-gray-800 font-semibold relative">
+          <p className=" text-3xl text-gray-800 font-semibold relative">
             {year}
             <span className="block w-full h-1 bg-PRIMEgray absolute -bottom-2 left-0"></span>
-          </h2>
+          </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 lg:gap-10 gap-6 mx-auto mt-8">
             {awardsData[year].map((award, idx) => (
