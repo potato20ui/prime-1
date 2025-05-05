@@ -9,20 +9,53 @@ import awardsbg from "@/assets/awardsbg.png";
 interface Award {
   img: string;
   title: string;
+  date: string;
 }
 
 const awardsData: Record<string, Award[]> = {
   2024: [
-    { img: "award1.png", title: "Asia Leaders Awards" },
-    { img: "award2.png", title: "Golden Globe Annual Awards" },
-    { img: "award3.png", title: "Global Excellence Awards" },
-    { img: "award1.png", title: "Real Estate Icon Awards" },
+    {
+      img: "/asia leaders logo.png",
+      title: "Asia Leaders Awards",
+      date: "November 2019",
+    },
+    {
+      img: "/golden globe logo.png",
+      title: "Golden Globe Annual Awards",
+      date: "November 2019",
+    },
+    {
+      img: "/global excellence logo.png",
+      title: "Global Excellence Awards",
+      date: "November 2022",
+    },
+    {
+      img: "/asia leaders logo.png",
+      title: "Asia Leaders Awards",
+      date: "November 2019",
+    },
   ],
   2023: [
-    { img: "award1.png", title: "Asia Leaders Awards" },
-    { img: "award2.png", title: "Golden Globe Annual Awards" },
-    { img: "award3.png", title: "Global Excellence Awards" },
-    { img: "award2.png", title: "Innovator of the Year" },
+    {
+      img: "/golden globe logo.png",
+      title: "Golden Globe Annual Awards",
+      date: "November 2019",
+    },
+    {
+      img: "/global excellence logo.png",
+      title: "Global Excellence Awards",
+      date: "November 2019",
+    },
+    {
+      img: "/asia leaders logo.png",
+      title: "Asia Leaders Awards",
+      date: "November 2019",
+    },
+    {
+      img: "/golden globe logo.png",
+      title: "Golden Globe Annual Awards",
+      date: "November 2019",
+    },
   ],
 };
 
@@ -94,16 +127,22 @@ const Awards: React.FC = () => {
             {awardsData[year].map((award, idx) => (
               <div
                 key={idx}
-                className="w-[350px] h-[450px] bg-white rounded-lg shadow-md p-4 text-center"
+                className="w-[350px] h-[450px] bg-white shadow-md text-center"
               >
-                {award.img && (
-                  <img
-                    src={award.img}
-                    alt={award.title}
-                    className="w-full h-[200px] object-contain"
-                  />
-                )}
-                <p className="mt-4 text-base text-gray-600">{award.title}</p>
+                <div className="w-[350px] h-[320px] flex items-center border-[0.5px] border-PRIMElightgray px-5">
+                  {award.img && (
+                    <img
+                      src={award.img}
+                      alt={award.title}
+                      className="w-full h-[200px] object-contain"
+                    />
+                  )}
+                </div>
+
+                <div className="w-[350px] h-[130px] flex flex-col items-center justify-center  border-[0.5px] border-t-0 border-PRIMElightgray">
+                  <p className="text-base">{award.title}</p>
+                  <span className=" text-PRIMEgray">{award.date}</span>
+                </div>
               </div>
             ))}
           </div>
