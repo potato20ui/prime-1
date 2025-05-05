@@ -4,11 +4,11 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Mail, MapPin, Phone, Smartphone } from "lucide-react"
 import { motion } from "framer-motion"
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"
 
 export default function Footer() {
   return (
-    <footer className="bg-[#181D1E] text-[#cbd5e1] px-6 py-20 font-[Gotham Book]">
+    <footer className="bg-PRIMEblack text-slate-300 px-6 py-20 font-[Gotham Book]">
       <div className="max-w-[1400px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-16 sm:gap-20 lg:gap-32">
 
         {/* Left Section - Contact Info */}
@@ -16,20 +16,20 @@ export default function Footer() {
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
-          className="space-y-8 text-[12pt]"
+          className="space-y-8 text-[20px]"
         >
-         <Link to="/" className="focus:outline-none" onClick={() => window.scrollTo(0, 0)}>
+          <Link to="/" className="focus:outline-none" onClick={() => window.scrollTo(0, 0)}>
             <motion.img
               src="/prime-logo.png"
               alt="PRIME Philippines logo"
               className="w-56 h-auto object-contain hover:opacity-90 transition-opacity"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
-              style={{ filter: 'brightness(0) invert(1)' }}  // This will turn the image white
+              style={{ filter: 'brightness(0) invert(1)' }}
             />
           </Link>
 
-          <address className="not-italic space-y-4 leading-relaxed mt-8 bg-[#181D1E] text-[#cbd5e1]"> 
+          <address className="not-italic space-y-4 leading-relaxed mt-8">
             <p className="flex items-start gap-3">
               <MapPin size={18} className="mt-0.5 flex-shrink-0" />
               3/F Main CreatWork Ben-Lor IT Center, Diliman, Quezon City, Metro Manila
@@ -44,7 +44,7 @@ export default function Footer() {
             </p>
             <p className="flex items-center gap-3">
               <Mail size={18} />
-              <a href="mailto:inquiry@primephilippines.com" className="underline hover:text-[#fbbf24] transition-colors">
+              <a href="mailto:inquiry@primephilippines.com" className="underline hover:text-PRIMEyellow transition-colors">
                 inquiry@primephilippines.com
               </a>
             </p>
@@ -56,9 +56,9 @@ export default function Footer() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="space-y-6 text-[12pt]"
+          className="space-y-6 text-[20px]"
         >
-          <h2 className="text-[40pt] font-bold bg-gradient-to-r from-[#0B3B71] via-[#0B3B71] to-[#EF1C24] text-transparent bg-clip-text">
+          <h2 className="text-[48px] gotham-bold bg-gradient-to-r from-PRIMEblue via-PRIMEblue to-PRIMEred text-transparent bg-clip-text">
             PRIME RADAR
           </h2>
 
@@ -66,22 +66,22 @@ export default function Footer() {
             Get the latest real estate insights, events and news from our newsletter
           </p>
 
-          <form className="flex flex-col sm:flex-row w-full rounded-xl overflow-hidden bg-[#f0f3d9] shadow-lg ring-1 ring-[#e2e8f0]">
+          <form className="flex flex-col sm:flex-row w-full rounded-xl overflow-hidden bg-PRIMElightgray shadow-lg ring-1 ring-[#e2e8f0]">
             <Input
               type="email"
               placeholder="Enter your email"
-              className="flex-grow px-6 py-4 text-[#2a3a6f] text-[12pt] font-medium outline-none border-none shadow-none focus-visible:ring-2 focus-visible:ring-[#2a3a6f] transition-all w-full sm:w-auto"
+              className="flex-grow px-6 py-4 text-PRIMEblue text-[20px] font-medium outline-none border-none shadow-none focus-visible:ring-2 focus-visible:ring-PRIMEblue transition-all w-full sm:w-auto"
             />
             <Button
               type="submit"
-              className="bg-[#0B3B71] text-[#f0f3d9] font-bold px-6 py-4 uppercase tracking-wide text-[12pt] hover:bg-[#1a2a44]"
+              className="bg-PRIMEblue text-PRIMElightgray font-bold px-6 py-4 uppercase tracking-wide text-[20px] hover:bg-[#1a2a44]"
             >
               Subscribe
             </Button>
           </form>
 
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between pt-6 gap-4">
-            <div className="flex items-center gap-5 text-[14pt]">
+            <div className="flex items-center gap-5 text-[20px]">
               {[
                 { icon: "facebook-f", url: "https://facebook.com/primephilippines" },
                 { icon: "linkedin-in", url: "https://linkedin.com/company/primephilippines" },
@@ -95,7 +95,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.icon}
-                  className="hover:text-[#fbbf24] transition-colors"
+                  className="hover:text-PRIMEyellow transition-colors"
                 >
                   <i className={`fab fa-${social.icon}`}></i>
                 </a>
@@ -104,7 +104,7 @@ export default function Footer() {
 
             <a
               href="/consultation"
-              className="underline hover:text-[#fbbf24] text-[12pt]"
+              className="underline hover:text-PRIMEyellow text-[20px]"
             >
               Book a Consultation
             </a>
@@ -116,9 +116,9 @@ export default function Footer() {
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
-          className="space-y-6 text-[12pt]"
+          className="space-y-6 text-[20px]"
         >
-          <h3 className="text-[#fbbf24] gotham-bold text-[14pt]">
+          <h3 className="text-PRIMEyellow gotham-bold text-[20px]">
             NAVIGATION
           </h3>
           <div className="grid grid-cols-2 gap-4">
@@ -135,7 +135,7 @@ export default function Footer() {
               <Link
                 key={link.name}
                 to={link.path}
-                className="underline hover:text-[#fbbf24] transition-colors block"
+                className="underline hover:text-PRIMEyellow transition-colors block"
               >
                 {link.name}
               </Link>
@@ -149,7 +149,7 @@ export default function Footer() {
         initial={{ scaleX: 0 }}
         whileInView={{ scaleX: 1 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="max-w-7xl mx-auto border-t border-white/10 mt-16 pt-6 text-center text-[11pt] text-white/60"
+        className="max-w-7xl mx-auto border-t border-white/10 mt-16 pt-6 text-center text-[16px] text-white/60"
       >
         © 2013 - 2025 PRIME Philippines. All rights reserved.
       </motion.div>

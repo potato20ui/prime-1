@@ -13,11 +13,11 @@ export function Button({
   isLoading = false,
   ...props
 }: ButtonProps) {
-  const base = "inline-flex items-center justify-center rounded-full font-medium transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2";
-  
+  const base = "inline-flex items-center justify-center rounded-full font-medium transition-all focus:outline-none focus:ring-2 focus:ring-offset-2";
+
   const variants = {
-    default: "bg-[#0E406F] text-white hover:bg-[#0E406F]- active:bg-[#0E406F]",
-    ghost: "bg-transparent text-black border border-gray-300 hover:bg-gray-100 active:bg-gray-200",
+    default: "bg-[var(--color-PRIMEblue)] text-[var(--color-PRIMEwhite)] hover:bg-[var(--color-PRIMEblue)] active:bg-[var(--color-PRIMEblue)]",
+    ghost: "bg-transparent text-[var(--color-PRIMEblack)] border border-[var(--color-PRIMEgray)] hover:bg-[var(--color-PRIMElightgray)] active:bg-[var(--color-PRIMEgray)]",
   };
 
   const sizes = {
@@ -34,7 +34,7 @@ export function Button({
       {...props}
     >
       {isLoading ? (
-        <span className="animate-spin">🔄</span> // Loading spinner (or you can use an icon from a library like FontAwesome)
+        <span className="animate-spin"></span> // Loading spinner (or you can use an icon from a library like FontAwesome)
       ) : (
         props.children
       )}

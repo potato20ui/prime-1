@@ -3,8 +3,7 @@ import Footer from "@/components/Footer";  // Import Footer component
 import { Button } from "@/components/ui/button";
 import { MapPin, Clock } from "lucide-react";
 import { motion } from "framer-motion"; 
-import { useNavigate, Link } from "react-router-dom"; // 👈 Add this
-import careersImg from "../assets/careers.jpg";
+import { useNavigate, Link } from "react-router-dom"; //  Add this
 
 const positions = Array(7).fill({
   title: "Position",
@@ -14,51 +13,38 @@ const positions = Array(7).fill({
 });
 
 export default function Careers() {
-  const navigate = useNavigate(); // 👈 Initialize navigate function
+  const navigate = useNavigate(); //  Initialize navigate function
 
   return (
-    <div className="w-full min-h-screen bg-white text-gray-800">
+    <div className="w-full min-h-screen bg-PRIMEwhite text-PRIMEgray">
       {/* Navbar */}
       <Navbar />
 
 {/* Banner Section */}
 <section className="relative mb-10">
-  <div
-    className="w-full h-[503px] rounded-lg overflow-hidden relative group"
-    style={{
-      backgroundImage: `url(${careersImg})`, // Dynamically set the background image
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-    }}
-  >
-    {/* Overlay */}
-    <div className="absolute inset-0"></div> {/* Updated to match Careers color */}
-
-    {/* Text Content */}
-    <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4">
-      <motion.h1
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="text-[36pt] sm:text-[48pt] font-bold"
-      >
-        CAREERS
-      </motion.h1>
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, ease: "easeOut" }}
-        className="inline-flex items-center px-6 py-3 border-2 border-white rounded-full text-lg font-semibold mt-4"
-      >
-        <Link to="/" className="hover:underline">
-          Home
-        </Link>
-        <span className="mx-2">/</span>
-        <span className="font-semibold">Careers</span>
-      </motion.div>
-    </div>
-  </div>
-</section>
+        <div className="w-full h-[500px] bg-[url('/Careers.jpeg')] bg-cover bg-center rounded-lg relative group">
+           {/* Overlay */}
+    <div className="absolute inset-0 bg-PRIMEblue opacity-50"></div> {/* Updated to match Careers color */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4"
+          >
+            <h1 className="text-[36pt] sm:text-[48pt] font-bold">CAREERS</h1>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+              className="inline-flex items-center px-6 py-3 border-2 border-white rounded-full text-lg font-semibold mt-4"
+            >
+              <Link to="/" className="hover:underline">Home</Link>
+              <span className="mx-2">/</span>
+              <span className="font-semibold">Careers</span>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
 
       {/* Intro Section */}
       <section className="max-w-[1400px] mx-auto px-4 py-10">
@@ -66,7 +52,7 @@ export default function Careers() {
           Why Work with <span className="text-PRIMEblue font-bold">PRIME</span>{" "}
           Philippines
         </h2>
-        <p className="text-justify text-xl text-gray-600 leading-8.5">
+        <p className="text-justify text-xl text-PRIMEgray leading-8.5">
           Working with PRIME will give you a first-hand experience and introduce
           you to the exciting landscape of the real estate industry. With a
           positive company culture, opportunities for personal and career
@@ -84,7 +70,7 @@ export default function Careers() {
           >
             <div>
               <h3 className="text-[30px] font-semibold">{position.title}</h3>
-              <div className="flex items-center text-[20px] text-gray-600 space-x-4">
+              <div className="flex items-center text-[20px] text-PRIMEgray space-x-4">
                 <span className="flex items-center">
                   <MapPin className="h-4 w-4 mr-1" />
                   {position.location}
@@ -99,7 +85,7 @@ export default function Careers() {
             <div className="flex space-x-2">
               <Button
                 variant="default"
-                className="p-[20px] bg-PRIMEblue text-white rounded-lg hover:bg-blue-700 transition duration-200"
+                className="p-[20px] bg-PRIMEblue text-PRIMEwhite rounded-lg hover:bg-PRIMEblue/90 transition duration-200"
                 onClick={() => navigate(`/careers/${index}`)} // 👈 Go to position page
               >
                 View Position

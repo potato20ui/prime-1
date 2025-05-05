@@ -1,4 +1,3 @@
-// Filters.tsx
 import { Search } from "lucide-react";
 import { locationOptions, categoryOptions, leaseOptions } from "@/data/propertyData";
 
@@ -15,14 +14,14 @@ interface FiltersProps {
 
 export default function Filters({ filters, onFilterChange }: FiltersProps) {
   return (
-    <div className="relative z-10 bg-white -mt-20 max-w-4xl border rounded-lg mx-auto">
-      <div className="bg-white shadow-lg rounded-xl p-6 flex flex-wrap gap-6 items-center justify-between">
+    <div className="relative z-10 bg-[var(--color-PRIMEwhite)] -mt-20 max-w-4xl border rounded-lg mx-auto">
+      <div className="bg-[var(--color-PRIMEwhite)] shadow-lg rounded-xl p-6 flex flex-wrap gap-6 items-center justify-between">
         <div className="flex flex-wrap gap-4 items-center">
           <select
             name="location"
             value={filters.location}
             onChange={onFilterChange}
-            className="border-b border-gray-300 p-2 bg-white w-[160px] text-sm focus:ring-0 focus:border-blue-900"
+            className="border-b border-[var(--color-PRIMEgray)] p-2 bg-[var(--color-PRIMEwhite)] w-[160px] text-sm focus:ring-0 focus:border-[var(--color-PRIMEblue)]"
           >
             {locationOptions.map(location => (
               <option key={location} value={location}>{location}</option>
@@ -32,7 +31,7 @@ export default function Filters({ filters, onFilterChange }: FiltersProps) {
             name="category"
             value={filters.category}
             onChange={onFilterChange}
-            className="border-b border-gray-300 p-2 bg-white w-[160px] text-sm focus:ring-0 focus:border-blue-900"
+            className="border-b border-[var(--color-PRIMEgray)] p-2 bg-[var(--color-PRIMEwhite)] w-[160px] text-sm focus:ring-0 focus:border-[var(--color-PRIMEblue)]"
           >
             {categoryOptions.map(category => (
               <option key={category} value={category}>{category}</option>
@@ -42,7 +41,7 @@ export default function Filters({ filters, onFilterChange }: FiltersProps) {
             name="leaseType"
             value={filters.leaseType}
             onChange={onFilterChange}
-            className="border-b border-gray-300 p-2 bg-white w-[160px] text-sm focus:ring-0 focus:border-blue-900"
+            className="border-b border-[var(--color-PRIMEgray)] p-2 bg-[var(--color-PRIMEwhite)] w-[160px] text-sm focus:ring-0 focus:border-[var(--color-PRIMEblue)]"
           >
             {leaseOptions.map(type => (
               <option key={type} value={type}>{type}</option>
@@ -57,9 +56,9 @@ export default function Filters({ filters, onFilterChange }: FiltersProps) {
             value={filters.searchQuery}
             onChange={onFilterChange}
             placeholder="Search properties..."
-            className="border-b border-gray-300 p-2 pl-10 w-full text-sm bg-transparent focus:outline-none focus:border-blue-900"
+            className="border-b border-[var(--color-PRIMEgray)] p-2 pl-10 w-full text-sm bg-transparent focus:outline-none focus:border-[var(--color-PRIMEblue)]"
           />
-          <Search className="absolute top-3 left-3 h-4 w-4 text-gray-400" />
+          <Search className="absolute top-3 left-3 h-4 w-4 text-[var(--color-PRIMEgray)]" />
         </div>
       </div>
     </div>

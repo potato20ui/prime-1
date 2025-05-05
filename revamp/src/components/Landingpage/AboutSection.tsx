@@ -45,11 +45,11 @@ export default function AboutSection() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className="bg-[#E6F0FF] py-20 px-6 sm:px-10 md:px-16 font-[Gotham Book]">
+    <section className="bg-PRIMElight py-20 px-6 sm:px-10 md:px-16 font-gotham-book">
       <div className="max-w-[1400px] mx-auto space-y-20">
-        {/* Top Label */}
+        {/* Label */}
         <motion.div
-          className="flex justify-center items-center text-[#0B3B71] font-bold text-sm tracking-wide space-x-2"
+          className="flex justify-center items-center text-PRIMEblue font-gotham-bold text-sm tracking-wide space-x-2"
           initial={{ opacity: 0, y: -10 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -65,18 +65,21 @@ export default function AboutSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
-          <h2 className="text-[24pt] font-[Gotham Bold] text-[#0a0a0a] max-w-3xl mx-auto leading-tight">
+          <h2 className="text-[24pt] font-gotham-bold text-PRIMEblack max-w-3xl mx-auto leading-tight">
             Why Choose{" "}
-            <a href="#" className="text-[#1e3a66] underline-offset-2 hover:underline transition">
+            <a
+              href="#"
+              className="text-PRIMEblue underline-offset-2 hover:underline transition"
+            >
               PRIME Philippines
             </a>{" "}
             for Your Commercial Real Estate Needs?
           </h2>
         </motion.div>
 
-        {/* Highlight Section */}
+        {/* Highlights */}
         <motion.div
-          className="relative flex flex-col md:flex-row gap-10 items-center max-w-[1200px] mx-auto rounded-2xl overflow-hidden shadow-xl bg-white group transition-all duration-300"
+          className="relative flex flex-col md:flex-row gap-10 items-center max-w-[1200px] mx-auto rounded-2xl overflow-hidden shadow-xl bg-PRIMEwhite group transition-all duration-300"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -93,12 +96,10 @@ export default function AboutSection() {
                 whileHover={{ scale: 1.02 }}
                 className="flex gap-3 items-start group"
               >
-                <FaCheck className="text-[#1e3a66] mt-1 shrink-0" />
+                <FaCheck className="text-PRIMEblue mt-1 shrink-0" />
                 <div>
-                  <p className="text-md font-semibold text-[#0a0a0a]">
-                    {item.title}
-                  </p>
-                  <p className="text-sm text-gray-600">{item.description}</p>
+                  <p className="text-[13pt] font-gotham-bold text-PRIMEblack">{item.title}</p>
+                  <p className="text-sm text-PRIMEgray">{item.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -112,15 +113,15 @@ export default function AboutSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <h3 className="text-[20pt] font-[Gotham Bold] text-[#0a0a0a] max-w-md mx-auto">
+          <h3 className="text-[20pt] font-gotham-bold text-PRIMEblack max-w-md mx-auto">
             Discover the{" "}
-            <span className="text-[#1e3a66] font-semibold">advantages</span> and exclusive benefits
+            <span className="text-PRIMEblue font-semibold">advantages</span> and exclusive benefits
           </h3>
         </motion.div>
 
-        {/* Step Section */}
+        {/* Steps */}
         <div className="flex flex-col md:flex-row items-start justify-between gap-10 max-w-[1200px] mx-auto mt-10">
-          {/* Steps List */}
+          {/* Step List */}
           <motion.div
             className="space-y-6 w-full md:w-[45%]"
             initial={{ opacity: 0, x: -30 }}
@@ -135,21 +136,21 @@ export default function AboutSection() {
                   onClick={() => setActiveIndex(index)}
                   className={`cursor-pointer p-5 rounded-lg border-l-4 transition-all duration-300 ${
                     isActive
-                      ? "border-[#1e3a66] bg-[#f4f7fd]"
-                      : "border-gray-300 hover:border-[#1e3a66]"
+                      ? "border-PRIMEblue bg-PRIMEwhite"
+                      : "border-PRIMElightgray hover:border-PRIMEblue"
                   }`}
                   whileHover={{ scale: 1.01 }}
                 >
                   <p
-                    className={`text-lg font-semibold ${
-                      isActive ? "text-[#1e3a66]" : "text-gray-700"
+                    className={`text-lg font-gotham-bold ${
+                      isActive ? "text-PRIMEblue" : "text-PRIMEgray"
                     }`}
                   >
                     {step.title}
                   </p>
                   <p
                     className={`text-sm mt-1 ${
-                      isActive ? "text-[#0a0a0a]" : "text-gray-500"
+                      isActive ? "text-PRIMEblack" : "text-PRIMEgray"
                     }`}
                   >
                     {step.description}

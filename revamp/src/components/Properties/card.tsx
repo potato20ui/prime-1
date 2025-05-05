@@ -8,14 +8,7 @@ interface CardProps {
 export function Card({ children, className = "" }: CardProps) {
   return (
     <div
-      className={`
-        bg-white 
-        rounded-2xl 
-        shadow-lg 
-        hover:shadow-xl 
-        border border-[#black]
-        ${className}
-      `}
+      className={`bg-[var(--color-PRIMEwhite)] rounded-2xl shadow-lg hover:shadow-xl border border-[var(--color-PRIMEblack)] ${className}`}
     >
       {children}
     </div>
@@ -30,11 +23,7 @@ interface CardContentProps {
 export function CardContent({ children, className = "" }: CardContentProps) {
   return (
     <div
-      className={`
-        p-4 sm:p-6 md:p-8 
-        text-black 
-        ${className}
-      `}
+      className={`p-4 sm:p-6 md:p-8 text-[var(--color-PRIMEblack)] ${className}`}
     >
       {children}
     </div>

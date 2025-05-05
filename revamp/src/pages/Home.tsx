@@ -7,7 +7,7 @@ import AboutSection from "@/components/Landingpage/AboutSection";
 import BlogSection from "@/components/Landingpage/BlogSection";
 import TrustedPartners from '@/components/Landingpage/TrustedPartners';
 import Testimonials from '@/components/Landingpage/Testimonials';
-import LastSection from '@/components/Landingpage/LastSection';
+import LastSection from '@/components/Landingpage/InquireSection';
 
 function Home() {
   return (

@@ -1,4 +1,3 @@
-// components/Navbar/Navbar.tsx
 import { useState, useEffect, useRef } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
@@ -54,34 +53,45 @@ const Navbar = () => {
 
   const navClasses = isHomePage
     ? scrolled
-      ? "bg-white text-black shadow-md"
+      ? "bg-PRIMEwhite text-PRIMEblack shadow-md"
       : "bg-transparent text-white"
-    : "bg-white text-black shadow-md";
+    : "bg-PRIMEwhite text-PRIMEblack shadow-md";
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 py-4 transition-all duration-300 ${navClasses}`}>
-      <div className="w-full flex justify-between items-center px-0 md:px-6">
+    <nav className={`fixed top-0 left-0 right-0 z-50 py-4 transition-all duration-300 font-[Gotham Book] ${navClasses}`}>
+      <div className="w-full flex justify-between items-center px-4 md:px-6">
         {/* Logo */}
         <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
           <Link to="/" onClick={scrollToTop}>
-            <img src="/prime-logo.png" alt="PRIME Philippines Logo" className="h-12 md:h-16 p-1" />
+            <img
+              src="/prime-logo.png"
+              alt="PRIME Philippines Logo"
+              className="h-12 md:h-16 p-1 object-contain"
+            />
           </Link>
         </motion.div>
 
-        {/* Desktop Links */}
+        {/* Desktop Navigation Links */}
         {!isTabletOrMobile && (
-          <div className="hidden lg:flex items-center space-x-6" ref={dropdownRef}>
-            <NavLinks scrollToTop={scrollToTop} isScrolled={isHomePage && !scrolled ? false : true} />
+          <div className="hidden lg:flex items-center space-x-6 text-[20px]" ref={dropdownRef}>
+            <NavLinks
+              scrollToTop={scrollToTop}
+              isScrolled={isHomePage && !scrolled ? false : true}
+            />
           </div>
         )}
 
         {/* Mobile Toggle */}
         {isTabletOrMobile && (
-          <motion.button className="z-50 p-4" onClick={() => setMenuOpen(!menuOpen)} whileTap={{ scale: 0.9 }}>
+          <motion.button
+            className="z-50 p-4"
+            onClick={() => setMenuOpen(!menuOpen)}
+            whileTap={{ scale: 0.9 }}
+          >
             {menuOpen ? (
-              <FaTimes className={`w-6 h-6 ${isHomePage && !scrolled ? "text-white" : "text-[#666666]"}`} />
+              <FaTimes className={`w-6 h-6 ${isHomePage && !scrolled ? "text-white" : "text-PRIMEgray"}`} />
             ) : (
-              <FaBars className={`w-6 h-6 ${isHomePage && !scrolled ? "text-white" : "text-[#666666]"}`} />
+              <FaBars className={`w-6 h-6 ${isHomePage && !scrolled ? "text-white" : "text-PRIMEgray"}`} />
             )}
           </motion.button>
         )}
@@ -90,7 +100,11 @@ const Navbar = () => {
       {/* Mobile Menu */}
       <AnimatePresence>
         {menuOpen && (
-          <MobileMenu scrollToTop={scrollToTop} menuRef={mobileMenuRef} setMenuOpen={setMenuOpen} />
+          <MobileMenu
+            scrollToTop={scrollToTop}
+            menuRef={mobileMenuRef}
+            setMenuOpen={setMenuOpen}
+          />
         )}
       </AnimatePresence>
     </nav>

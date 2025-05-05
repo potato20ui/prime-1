@@ -143,26 +143,26 @@ export default function PropertiesPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white overflow-x-hidden">
+    <div className="min-h-screen bg-PRIMEwhite overflow-x-hidden">
       <Navbar />
 
       {/* Banner Section */}
       <section className="relative mb-10">
         <div className="w-full h-[500px] bg-[url('/Property/Properties.png')] bg-cover bg-center rounded-lg relative group">
            {/* Overlay */}
-           <div className="absolute inset-0 bg-[#0E406F]/30 transition duration-300"></div>
+    <div className="absolute inset-0 bg-PRIMEblue opacity-50"></div> {/* Updated to match Careers color */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4"
+            className="absolute inset-0 flex flex-col items-center justify-center text-PRIMEwhite text-center px-4"
           >
             <h1 className="text-[36pt] sm:text-[48pt] font-bold">PROPERTIES</h1>
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
-              className="inline-flex items-center px-6 py-3 border-2 border-white rounded-full text-lg font-semibold mt-4"
+              className="inline-flex items-center px-6 py-3 border-2 border-PRIMEwhite rounded-full text-lg font-semibold mt-4"
             >
               <Link to="/" className="hover:underline">Home</Link>
               <span className="mx-2">/</span>
@@ -194,8 +194,8 @@ export default function PropertiesPage() {
           return (
             <section key={index} className="space-y-6">
               <div className="text-center">
-                <h2 className="text-2xl font-semibold text-gray-800 mb-2">{categoryName}</h2>
-                <p className="text-sm text-gray-500">{category.description}</p>
+                <h2 className="text-2xl font-semibold text-PRIMEblack mb-2">{categoryName}</h2>
+                <p className="text-sm text-PRIMEgray">{category.description}</p>
               </div>
 
               {filtered.length > 0 ? (
@@ -204,15 +204,16 @@ export default function PropertiesPage() {
                     <Button
                       variant="ghost"
                       size="icon"
-                      className="absolute left-[-60px] z-10 bg-white border rounded-full shadow-md hover:bg-[#0E406F]"
+                      className="absolute left-[-60px] z-10 bg-PRIMEwhite border rounded-full shadow-md hover:bg-PRIMEblue"
                       onClick={() => handlePrev(index)}
                       disabled={page === 0}
                     >
                       <ChevronLeft />
                     </Button>
 
+                    {/* Property Cards */}
                     <div className="w-full overflow-visible">
-                      <div className="flex gap-6 transition-all">
+                      <div className="flex-wrap gap-6 transition-all">
                         <AnimatePresence mode="wait">
                           <motion.div
                             key={`${index}-${page}`}
@@ -233,7 +234,7 @@ export default function PropertiesPage() {
                     <Button
                       variant="ghost"
                       size="icon"
-                      className="absolute right-[-60px] z-10 bg-white border rounded-full shadow-md hover:bg-[#0E406F]"
+                      className="absolute right-[-60px] z-10 bg-PRIMEwhite border rounded-full shadow-md hover:bg-PRIMEblue"
                       onClick={() => handleNext(index)}
                       disabled={page >= totalPages - 1}
                     >
@@ -245,11 +246,11 @@ export default function PropertiesPage() {
                         {/* Paginataion Dots */}
                   {totalPages > 1 && (
                     <div className="flex justify-center mt-4">
-                      <div className="flex gap-2 px-4 py-3 bg-gray-200 rounded-full shadow-sm">
+                      <div className="flex gap-2 px-4 py-3 bg-PRIMElightgray rounded-full shadow-sm">
                         {Array.from({ length: totalPages }).map((_, dotIndex) => (
                           <div
                             key={dotIndex}
-                            className={`w-2 h-2 rounded-full ${dotIndex === page ? "bg-[#0E406F]" : "bg-gray-400"}`}
+                            className={`w-2 h-2 rounded-full ${dotIndex === page ? "bg-PRIMEblue" : "bg-PRIMEgray"}`}
                           />
                         ))}
                       </div>
@@ -257,7 +258,7 @@ export default function PropertiesPage() {
                   )}
                 </>
               ) : (
-                <p className="text-center text-gray-500">No properties found in this category.</p>
+                <p className="text-center text-PRIMEgray">No properties found in this category.</p>
               )}
             </section>
           );

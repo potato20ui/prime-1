@@ -1,19 +1,17 @@
-// components/Navbar/MobileMenu.tsx
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { FaTimes } from "react-icons/fa";
 
 interface MobileMenuProps {
   scrollToTop: () => void;
-  menuRef: React.RefObject<HTMLDivElement | null>; // ✅ fixed type
+  menuRef: React.RefObject<HTMLDivElement | null>;
   setMenuOpen: (open: boolean) => void;
 }
 
-
 const MobileMenu = ({ scrollToTop, menuRef, setMenuOpen }: MobileMenuProps) => {
   const linkClass = `
-    font-gotham-bold uppercase text-[12pt] md:text-[14pt]
-    hover:text-[#0B3B71] transition-colors
+    font-[Gotham Bold] uppercase text-[12pt] md:text-[14pt]
+    hover:text-PRIMEblue text-PRIMEblack transition-colors
   `;
 
   const mobileMenuVariants = {
@@ -47,28 +45,34 @@ const MobileMenu = ({ scrollToTop, menuRef, setMenuOpen }: MobileMenuProps) => {
       animate="visible"
       exit="exit"
       variants={mobileMenuVariants}
-      className="fixed top-0 left-0 h-full w-72 md:w-80 bg-white text-black z-40 shadow-xl flex flex-col"
+      className="fixed top-0 left-0 h-full w-72 md:w-80 bg-PRIMEwhite text-PRIMEblack z-40 shadow-xl flex flex-col"
     >
-      <div className="flex items-center justify-between p-4 border-b">
+      {/* Header */}
+      <div className="flex items-center justify-between p-4 border-b border-gray-200">
         <Link to="/" onClick={scrollToTop}>
-          <img src="/prime-logo.png" alt="PRIME Logo" className="h-10 md:h-12" />
+          <img
+            src="/prime-logo.png"
+            alt="PRIME Logo"
+            className="h-10 md:h-12 object-contain"
+          />
         </Link>
         <motion.button
           onClick={() => setMenuOpen(false)}
           whileHover={{ rotate: 90 }}
-          className="text-gray-500 hover:text-black"
+          className="text-PRIMEgray hover:text-PRIMEblack transition-colors"
         >
           <FaTimes className="text-xl" />
         </motion.button>
       </div>
 
+      {/* Links */}
       <div className="flex flex-col p-4 gap-4 overflow-y-auto">
         {menuItems.map(({ label, to }, i) => (
           <Link
             key={i}
             to={to}
             onClick={scrollToTop}
-            className={`${linkClass}`}
+            className={linkClass}
           >
             {label}
           </Link>

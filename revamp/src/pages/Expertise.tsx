@@ -67,31 +67,42 @@ const ExpertisePage = () => {
     <div className="w-full min-h-screen bg-gray-50">
       <Navbar />
 
-       {/* Banner Section */}
-                <section className="relative mb-10">
-              <div className="w-full h-[500px] bg-[url('/Property/Properties.png')] bg-cover bg-center rounded-lg relative group">
-                 {/* Overlay */}
-                 <div className="absolute inset-0 bg-[#0E406F]/30 transition duration-300"></div>
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, ease: "easeOut" }}
-                  className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4"
-                >
-                  <h1 className="text-[36pt] sm:text-[48pt] font-bold">EXPERTISE</h1>
-                  <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1 }}
-                    className="inline-flex items-center px-6 py-3 border-2 border-white rounded-full text-lg font-semibold mt-4"
-                  >
-                    <Link to="/" className="hover:underline">Home</Link>
-                    <span className="mx-2">/</span>
-                    <span className="font-semibold">Expertise</span>
-                  </motion.div>
-                </motion.div>
-              </div>
-            </section>
+           {/* Banner Section */}
+<section className="relative mb-10">
+  <div
+    className="w-full h-[500px] rounded-lg overflow-hidden relative group"
+    style={{
+      backgroundImage: `url(/Contact.png)`, // Background image for the banner
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+    }}
+  >
+    {/* Overlay */}
+    <div className="absolute inset-0 bg-PRIMEblue opacity-50"></div> {/* Updated to match Careers color */}
+
+    {/* Centered Title and Breadcrumb with animation */}
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4"
+    >
+      <h1 className="text-[36pt] sm:text-[48pt] font-bold">EXPERTISE</h1>
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+        className="inline-flex items-center px-[40px] py-[12px] border-2 border-white rounded-full text-lg font-semibold mt-4"
+      >
+        <Link to="/" className="hover:underline">
+          Home
+        </Link>
+        <span className="mx-2">/</span>
+        <span className="font-semibold">Expertise</span>
+      </motion.div>
+    </motion.div>
+  </div>
+</section>
 
       {/* Content Section */}
       <section className="px-6 lg:px-12 py-16 max-w-[1400px] mx-auto">
@@ -106,8 +117,8 @@ const ExpertisePage = () => {
             style={{ width: "100%", maxWidth: "450px", height: "auto" }}
           >
             <div className="text-left mb-8">
-              <h2 className="text-2xl font-bold text-blue-900">Expertise</h2>
-              <div className="h-1 w-24 bg-gradient-to-r from-yellow-400 via-red-500 to-blue-800 rounded-full mt-2"></div>
+              <h2 className="text-2xl font-bold text-PRIMEblue">Expertise</h2>
+              <div className="h-1 w-24 bg-gradient-to-r from-PRIMEyellow via-PRIMEred to-PRIMEblue rounded-full mt-2"></div>
             </div>
 
             {/* Buttons */}
@@ -116,12 +127,12 @@ const ExpertisePage = () => {
                 onClick={handleDropdownClick}
                 className={`flex items-center justify-between w-full py-3 px-4 rounded-md transition-all duration-300 ${
                   showDropdown
-                    ? "bg-blue-100 text-blue-700 font-semibold"
-                    : "hover:bg-blue-100 text-gray-700"
+                    ? "bg-blue-100 text-PRIMEblue font-semibold"
+                    : "hover:bg-blue-100 text-PRIMEgray"
                 }`}
               >
                 <span>Kickstart</span>
-                <ArrowRight size={18} className="text-[#2a3a6f]" />
+                <ArrowRight size={18} className="text-PRIMEblue" />
               </button>
 
               <AnimatePresence>
@@ -131,18 +142,18 @@ const ExpertisePage = () => {
                     animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.4, ease: "easeOut" }}
-                    className="flex flex-col pl-4"
+                    className="flex flex-col space-y-4 pl-4"
                   >
                     {serviceList.slice(0, 3).map((service) => (
                       <button
                         key={service.id}
                         onClick={() => setSelectedService(service.id)}
-                        className={`flex justify-between items-center py-2 px-4 text-gray-700 hover:bg-blue-100 rounded-md ${
+                        className={`flex justify-between items-center py-2 px-4 text-PRIMEgray hover:bg-blue-100 rounded-md ${
                           selectedService === service.id ? "bg-blue-100" : ""
                         }`}
                       >
                         <span>{service.name}</span>
-                        <ArrowRight size={18} className="text-[#2a3a6f]" />
+                        <ArrowRight size={18} className="text-PRIMEgray" />
                       </button>
                     ))}
                   </motion.div>
@@ -153,12 +164,12 @@ const ExpertisePage = () => {
                 <button
                   key={service.id}
                   onClick={() => setSelectedService(service.id)}
-                  className={`flex items-center justify-between w-full py-3 px-4 rounded-md hover:bg-blue-100 text-gray-700 transition-all duration-300 ${
+                  className={`flex items-center justify-between w-full py-3 px-4 rounded-md hover:bg-blue-100 text-PRIMEgray transition-all duration-300 ${
                     selectedService === service.id ? "bg-blue-100" : ""
                   }`}
                 >
                   <span>{service.name}</span>
-                  <ArrowRight size={18} className="text-[#2a3a6f]" />
+                  <ArrowRight size={18} className="text-PRIMEblue" />
                 </button>
               ))}
             </div>
@@ -177,21 +188,21 @@ const ExpertisePage = () => {
                   className="flex space-x-4"
                   style={{ width: "100%", height: "auto" }}
                 >
-                  <div className="flex-1 bg-gray-200 rounded-md overflow-hidden">
+                  <div className="flex-1 PRIMElightgray rounded-md overflow-hidden">
                     <img
                       src="https://via.placeholder.com/600x400?text=Buying+Selling+Image+1"
                       alt="Buying & Selling"
                       className="object-cover w-full h-full"
                     />
                   </div>
-                  <div className="flex-1 bg-gray-200 rounded-md overflow-hidden">
+                  <div className="flex-1 bg-PRIMElightgray rounded-md overflow-hidden">
                     <img
                       src="https://via.placeholder.com/600x400?text=Buying+Selling+Image+2"
                       alt="Buying & Selling"
                       className="object-cover w-full h-full"
                     />
                   </div>
-                  <div className="flex-1 bg-gray-200 rounded-md overflow-hidden">
+                  <div className="flex-1 bg-PRIMElightgray rounded-md overflow-hidden">
                     <img
                       src="https://via.placeholder.com/600x400?text=Buying+Selling+Image+3"
                       alt="Buying & Selling"
@@ -206,9 +217,9 @@ const ExpertisePage = () => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 20 }}
                   transition={{ duration: 0.6, ease: "easeOut" }}
-                  className="text-gray-700 leading-relaxed"
+                  className="text-PRIMEgray leading-relaxed"
                 >
-                  <h2 className="text-3xl font-bold text-blue-900 mb-4">
+                  <h2 className="text-3xl font-bold text-PRIMEblue mb-4">
                     {serviceList.find((s) => s.id === selectedService)?.name || "Service Not Found"}
                   </h2>
                   {contentMap[selectedService || 0] || <p>Content is currently unavailable.</p>}
@@ -222,16 +233,16 @@ const ExpertisePage = () => {
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.5, ease: "easeOut" }}
-            className="bg-[#0b2c53] text-white rounded-lg shadow-lg p-6 flex flex-col items-center justify-center w-full lg:w-[420px] mx-auto min-h-[500px]"
+            className="bg-PRIMEblue text-PRIMEwhite rounded-lg shadow-lg p-6 flex flex-col items-center justify-center w-full lg:w-[420px] mx-auto min-h-[500px]"
           >
-            <div className="flex items-center justify-center w-16 h-16 bg-blue-500 rounded-full mb-4">
+            <div className="flex items-center justify-center w-16 h-16 bg-PRIMEblue border border-PRIMEwhite rounded-full mb-4">
               <PhoneCall size={32} color="white" />
             </div>
             <p className="text-2xl font-bold mb-2">Need Help?</p>
             <p className="text-lg font-semibold mb-6">Call Here</p>
             <div className="text-sm space-y-2 text-center">
-              <p><strong>Phone:</strong> <a href="tel:+63288881000" className="text-blue-300 hover:underline">+63 2 8888 1000</a></p>
-              <p><strong>Mobile:</strong> <a href="tel:+639171234567" className="text-blue-300 hover:underline">+63 917 123 4567</a></p>
+              <p><strong>Phone:</strong> <a href="tel:+63288881000" className="text-PRIMEwhite hover:underline">+63 2 8888 1000</a></p>
+              <p><strong>Mobile:</strong> <a href="tel:+639171234567" className="text-PRIMEwhite hover:underline">+63 917 123 4567</a></p>
             </div>
           </motion.div>
         </div>
