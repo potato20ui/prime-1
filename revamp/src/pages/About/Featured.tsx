@@ -51,14 +51,14 @@ export default function Featured() {
     };
   }, []);
 
-  useEffect(() => {
-    if (isInView) {
-      const interval = setInterval(() => {
-        handleNext();
-      }, 4000);
-      return () => clearInterval(interval);
-    }
-  }, [isInView]);
+  // useEffect(() => {
+  //   if (isInView) {
+  //     const interval = setInterval(() => {
+  //       handleNext();
+  //     }, 4000);
+  //     return () => clearInterval(interval);
+  //   }
+  // }, [isInView]);
 
   return (
     <section
@@ -66,15 +66,9 @@ export default function Featured() {
       className="relative w-full bg-[var(--color-PRIMEwhite)] py-10 px-4 sm:px-8 md:px-10 lg:px-20 font-gotham-book"
     >
       <div className="max-w-[1400px] mx-auto bg-[#E6F0FF] rounded-3xl shadow-xl p-8 md:p-12">
-        {/* Section Tag */}
-        <div className="flex justify-center items-center mb-6 text-[#0B3B71] font-bold text-sm tracking-wide space-x-2">
-          <FaUserCircle className="text-[xl]" />
-          <span>CLIENT TESTIMONIALS</span>
-        </div>
-
         {/* Heading */}
         <h2 className="text-[22pt] font-gotham-bold text-center text-[#0a0a0a] mb-10">
-          What Our Clients Say
+          Recent Awards
         </h2>
 
         {/* Carousel Container */}
@@ -90,28 +84,25 @@ export default function Featured() {
 
           {/* Testimonial Animation */}
           <AnimatePresence mode="wait">
-  <motion.div
-    key={index}
-    initial={{ opacity: 0, x: 50 }}
-    animate={{ opacity: isInView ? 1 : 0, x: 0 }}
-    exit={{ opacity: 0, x: -50 }}
-    transition={{ duration: 0.5 }}
-    style={{
-      backgroundImage: `url(${awards[index].backgroundImage})`, // Dynamically set background image
-    }}
-    className="bg-cover bg-center rounded-2xl p-8 md:p-10 text-white flex flex-col md:flex-row items-center gap-6 md:gap-10"
-  >
-      src={awards[index].image || "/defaultImage.jpg"} // Ensure fallback if image is undefined
-      src={awards[index].image}
-      alt={`${awards[index].title}'s photo`}
-      className="w-24 h-24 md:w-28 md:h-28 rounded-full object-cover border-4 border-white shadow-lg"
-    /{">"}
-    <div className="text-base md:text-lg leading-relaxed text-center md:text-left max-w-xl font-gotham-book">
-      <p className="font-gotham-bold text-lg">{awards[index].title}</p>
-      <p className="text-sm text-[#A3B1C2]">{awards[index].date}</p>
-    </div>
-  </motion.div>
-</AnimatePresence>
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: isInView ? 1 : 0, x: 0 }}
+              exit={{ opacity: 0, x: -50 }}
+              transition={{ duration: 0.5 }}
+              style={{
+                backgroundImage: `url(${awards[index].backgroundImage})`, // Dynamically set background image
+              }}
+              className="relative bg-cover bg-center rounded-2xl text-white flex flex-col md:flex-row items-center gap-6 md:gap-10 h-[450px]"
+            >
+              <div className="absolute text-base md:text-lg leading-relaxed font-gotham-book w-full bg-PRIMEblack/80 bottom-0 py-5 px-10 rounded-b-2xl">
+                <p className="font-gotham-bold text-lg">
+                  {awards[index].title}
+                </p>
+                <p className="text-sm text-[#A3B1C2]">{awards[index].date}</p>
+              </div>
+            </motion.div>
+          </AnimatePresence>
 
           {/* Right Arrow */}
           <button

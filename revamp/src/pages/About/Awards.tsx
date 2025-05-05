@@ -72,45 +72,45 @@ const Awards: React.FC = () => {
   return (
     <div className="bg-[var(--color-PRIMElightgray)] min-h-screen">
       <Navbar /> {/* Navbar added here */}
-     {/* Header Section */}
-<section className="relative mb-10">
-  <div
-    className="w-full h-[500px] rounded-lg overflow-hidden relative group"
-    style={{
-      backgroundImage: `url("/awards.png")`, // Background image for the banner
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-    }}
-  >
-    {/* Overlay */}
-    <div className="absolute inset-0 bg-PRIMEblue opacity-50"></div> {/* Updated to match Careers color */}
-
-    {/* Centered Title and Breadcrumb with animation */}
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-      className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4"
-    >
-      <h1 className="text-[36pt] sm:text-[48pt] font-bold">AWARDS & RECOGNITION</h1>
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, ease: "easeOut" }}
-        className="inline-flex items-center px-[40px] py-[12px] border-2 border-white rounded-full text-lg font-semibold mt-4"
-      >
-        <Link to="/" className="hover:underline">
-          Home
-        </Link>
-        <span className="mx-2">/</span>
-        <span className="font-semibold">Awards</span>
-      </motion.div>
-    </motion.div>
-  </div>
-</section>
-
+      {/* Header Section */}
+      <section className="relative">
+        <div
+          className="w-full h-[500px] rounded-lg overflow-hidden relative group"
+          style={{
+            backgroundImage: `url(${awardsbg})`, // Background image for the banner
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        >
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-PRIMEblue opacity-50"></div>{" "}
+          {/* Updated to match Careers color */}
+          {/* Centered Title and Breadcrumb with animation */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4"
+          >
+            <h1 className="text-[36pt] sm:text-[48pt] font-bold">
+              AWARDS & RECOGNITION
+            </h1>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+              className="inline-flex items-center px-[40px] py-[12px] border-2 border-white rounded-full text-lg font-semibold mt-4"
+            >
+              <Link to="/" className="hover:underline">
+                Home
+              </Link>
+              <span className="mx-2">/</span>
+              <span className="font-semibold">Awards</span>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
       <Featured />
-
       {/* 🗓 Awards by Year */}
       {displayYears.map((year) => (
         <section key={year}>
@@ -138,7 +138,6 @@ const Awards: React.FC = () => {
           </div>
         </section>
       ))}
-      
       <Footer /> {/* Add Footer here */}
     </div>
   );

@@ -5,7 +5,6 @@ import { MapPin, Clock } from "lucide-react";
 import { motion } from "framer-motion";
 import { useNavigate, Link } from "react-router-dom";
 
-
 const positions = Array(7).fill({
   title: "Position",
   location: "Quezon City",
@@ -21,31 +20,35 @@ export default function Careers() {
       {/* Navbar */}
       <Navbar />
 
-    {/* Banner Section */}
-          <section className="relative mb-10">
-            <div className="w-full h-[500px] bg-[url('/Careers.jpeg')] bg-cover bg-center rounded-lg relative group">
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-[#0E406F]/30 transition duration-300"></div>
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4"
-              >
-                <h1 className="text-[36pt] sm:text-[48pt] font-gotham-bold">PRIME Foundation</h1>
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 1 }}
-                  className="inline-flex items-center px-6 py-3 border-2 border-white rounded-full text-lg font-semibold mt-4"
-                >
-                  <Link to="/" className="hover:underline">Home</Link>
-                  <span className="mx-2">/</span>
-                  <span className="font-semibold">Prime Foundation</span>
-                </motion.div>
-              </motion.div>
-            </div>
-          </section>
+      {/* Banner Section */}
+      <section className="relative mb-10">
+        <div className="w-full h-[500px] bg-[url('/Careers.jpeg')] bg-cover bg-center rounded-lg relative group">
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-PRIMEblue/70 transition duration-300"></div>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4"
+          >
+            <h1 className="text-[36pt] sm:text-[48pt] font-gotham-bold">
+              PRIME Foundation
+            </h1>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+              className="inline-flex items-center px-6 py-3 border-2 border-white rounded-full text-lg font-semibold mt-4"
+            >
+              <Link to="/" className="hover:underline">
+                Home
+              </Link>
+              <span className="mx-2">/</span>
+              <span className="font-semibold">Prime Foundation</span>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
 
       {/* Intro Section */}
       <section className="max-w-[1400px] mx-auto px-4 py-10">
