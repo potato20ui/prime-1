@@ -1,38 +1,42 @@
 // src/components/footer.tsx
 
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
-import { Mail, MapPin, Phone, Smartphone } from "lucide-react"
-import { motion } from "framer-motion"
-import { Link } from "react-router-dom"
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Mail, MapPin, Phone, Smartphone } from "lucide-react";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
     <footer className="bg-PRIMEblack text-slate-300 px-6 py-20 font-[Gotham Book]">
-      <div className="max-w-[1400px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-16 sm:gap-20 lg:gap-32">
-
+      <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-3 gap-16 sm:gap-20 lg:gap-32 sm:px-10 lg:px-0">
         {/* Left Section - Contact Info */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
           className="space-y-8 text-[20px]"
         >
-          <Link to="/" className="focus:outline-none" onClick={() => window.scrollTo(0, 0)}>
+          <Link
+            to="/"
+            className="focus:outline-none"
+            onClick={() => window.scrollTo(0, 0)}
+          >
             <motion.img
               src="/prime-logo.png"
               alt="PRIME Philippines logo"
               className="w-56 h-auto object-contain hover:opacity-90 transition-opacity"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
-              style={{ filter: 'brightness(0) invert(1)' }}
+              style={{ filter: "brightness(0) invert(1)" }}
             />
           </Link>
 
           <address className="not-italic space-y-4 leading-relaxed mt-8">
             <p className="flex items-start gap-3">
               <MapPin size={18} className="mt-0.5 flex-shrink-0" />
-              3/F Main CreatWork Ben-Lor IT Center, Diliman, Quezon City, Metro Manila
+              3/F Main CreatWork Ben-Lor IT Center, Diliman, Quezon City, Metro
+              Manila
             </p>
             <p className="flex items-center gap-3">
               <Smartphone size={18} />
@@ -44,7 +48,10 @@ export default function Footer() {
             </p>
             <p className="flex items-center gap-3">
               <Mail size={18} />
-              <a href="mailto:inquiry@primephilippines.com" className="underline hover:text-PRIMEyellow transition-colors">
+              <a
+                href="mailto:inquiry@primephilippines.com"
+                className="underline hover:text-PRIMEyellow transition-colors"
+              >
                 inquiry@primephilippines.com
               </a>
             </p>
@@ -52,7 +59,7 @@ export default function Footer() {
         </motion.div>
 
         {/* Middle Section - Newsletter */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -63,7 +70,8 @@ export default function Footer() {
           </h2>
 
           <p className="leading-relaxed max-w-md">
-            Get the latest real estate insights, events and news from our newsletter
+            Get the latest real estate insights, events and news from our
+            newsletter
           </p>
 
           <form className="flex flex-col sm:flex-row w-full rounded-xl overflow-hidden bg-PRIMElightgray shadow-lg ring-1 ring-[#e2e8f0]">
@@ -83,11 +91,23 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between pt-6 gap-4">
             <div className="flex items-center gap-5 text-[20px]">
               {[
-                { icon: "facebook-f", url: "https://facebook.com/primephilippines" },
-                { icon: "linkedin-in", url: "https://linkedin.com/company/primephilippines" },
-                { icon: "youtube", url: "https://youtube.com/primephilippines" },
-                { icon: "instagram", url: "https://instagram.com/primephilippines" },
-                { icon: "tiktok", url: "https://tiktok.com/@primephilippines" }
+                {
+                  icon: "facebook-f",
+                  url: "https://facebook.com/primephilippines",
+                },
+                {
+                  icon: "linkedin-in",
+                  url: "https://linkedin.com/company/primephilippines",
+                },
+                {
+                  icon: "youtube",
+                  url: "https://youtube.com/primephilippines",
+                },
+                {
+                  icon: "instagram",
+                  url: "https://instagram.com/primephilippines",
+                },
+                { icon: "tiktok", url: "https://tiktok.com/@primephilippines" },
               ].map((social) => (
                 <a
                   key={social.icon}
@@ -112,7 +132,7 @@ export default function Footer() {
         </motion.div>
 
         {/* Right Section - Navigation */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
@@ -145,7 +165,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom Border */}
-      <motion.div 
+      <motion.div
         initial={{ scaleX: 0 }}
         whileInView={{ scaleX: 1 }}
         transition={{ duration: 0.8, delay: 0.2 }}
@@ -154,5 +174,5 @@ export default function Footer() {
         © 2013 - 2025 PRIME Philippines. All rights reserved.
       </motion.div>
     </footer>
-  )
+  );
 }
