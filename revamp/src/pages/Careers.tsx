@@ -52,7 +52,7 @@ export default function Careers() {
 
       {/* Intro Section */}
       <section className="max-w-[1400px] mx-auto px-4 py-10">
-        <h2 className="text-5xl font-semibold text-center mb-4">
+        <h2 className="text-5xl font-semibold text-center mb-4 text-PRIMEblack">
           Why Work with <span className="text-PRIMEblue font-bold">PRIME</span>{" "}
           Philippines
         </h2>
@@ -73,7 +73,9 @@ export default function Careers() {
             className="flex justify-between items-center rounded-xl shadow-xl px-[60px] py-[35px]"
           >
             <div>
-              <h3 className="text-[30px] font-semibold">{position.title}</h3>
+              <h3 className="text-[30px] font-semibold text-PRIMEblack ">
+                {position.title}
+              </h3>
               <div className="flex items-center text-[20px] text-PRIMEgray space-x-4">
                 <span className="flex items-center">
                   <MapPin className="h-4 w-4 mr-1" />
