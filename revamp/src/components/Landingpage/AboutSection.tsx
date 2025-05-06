@@ -5,7 +5,8 @@ import { motion, AnimatePresence } from "framer-motion";
 const highlights = [
   {
     title: "Expert Local Knowledge",
-    description: "Extensive experience and insights into the perfect local market.",
+    description:
+      "Extensive experience and insights into the perfect local market.",
   },
   {
     title: "Personalized Service",
@@ -13,7 +14,8 @@ const highlights = [
   },
   {
     title: "Proven Track Record",
-    description: "A history of 7000+ successful projects and satisfied clients.",
+    description:
+      "A history of 7000+ successful projects and satisfied clients.",
   },
 ];
 
@@ -65,7 +67,7 @@ export default function AboutSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
-          <h2 className="text-[24pt] font-gotham-bold text-PRIMEblack max-w-3xl mx-auto leading-tight">
+          <h2 className="text-[32px] font-gotham-bold text-PRIMEblack max-w-3xl mx-auto leading-tight">
             Why Choose{" "}
             <a
               href="#"
@@ -98,7 +100,9 @@ export default function AboutSection() {
               >
                 <FaCheck className="text-PRIMEblue mt-1 shrink-0" />
                 <div>
-                  <p className="text-[13pt] font-gotham-bold text-PRIMEblack">{item.title}</p>
+                  <p className="text-[13pt] font-gotham-bold text-PRIMEblack">
+                    {item.title}
+                  </p>
                   <p className="text-sm text-PRIMEgray">{item.description}</p>
                 </div>
               </motion.div>
@@ -113,9 +117,10 @@ export default function AboutSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <h3 className="text-[20pt] font-gotham-bold text-PRIMEblack max-w-md mx-auto">
+          <h3 className="text-[32px] font-gotham-bold text-PRIMEblack max-w-md mx-auto">
             Discover the{" "}
-            <span className="text-PRIMEblue font-semibold">advantages</span> and exclusive benefits
+            <span className="text-PRIMEblue font-semibold">advantages</span> and
+            exclusive benefits
           </h3>
         </motion.div>
 

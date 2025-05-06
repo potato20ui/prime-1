@@ -14,7 +14,7 @@ export default function TrustedPartners() {
   const [current, setCurrent] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
-  
+
   const [inView, setInView] = useState(false);
 
   useEffect(() => {
@@ -30,7 +30,7 @@ export default function TrustedPartners() {
         threshold: 0.5,
       }
     );
-    
+
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
@@ -74,8 +74,8 @@ export default function TrustedPartners() {
           transition={{ duration: 0.6 }}
           className="flex justify-center items-center mb-8 text-PRIMEblue font-gotham-bold text-sm md:text-base tracking-wide space-x-2"
         >
-            <FaHandshake className="text-xl" />
-            <span>TRUSTED PARTNERSHIPS</span>
+          <FaHandshake className="text-xl" />
+          <span>TRUSTED PARTNERSHIPS</span>
         </motion.div>
 
         <motion.h2
@@ -88,7 +88,10 @@ export default function TrustedPartners() {
         </motion.h2>
 
         {/* Carousel */}
-        <div ref={containerRef} className="relative w-full max-w-[1000px] flex items-center justify-center">
+        <div
+          ref={containerRef}
+          className="relative w-full max-w-[1000px] flex items-center justify-center"
+        >
           {/* Navigation Arrows */}
           <button
             onClick={handlePrev}
@@ -118,7 +121,10 @@ export default function TrustedPartners() {
               onClick={handlePrev}
             >
               <img
-                src={partners[(current - 1 + partners.length) % partners.length].logo}
+                src={
+                  partners[(current - 1 + partners.length) % partners.length]
+                    .logo
+                }
                 alt="Previous Partner"
                 className="w-full h-full object-contain grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110"
               />
@@ -170,7 +176,9 @@ export default function TrustedPartners() {
               key={index}
               onClick={() => handleDotClick(index)}
               className={`h-2 w-2 rounded-full transition-all duration-300 ${
-                current === index ? "bg-PRIMEblue scale-125" : "bg-PRIMElightgray hover:bg-PRIMEgray"
+                current === index
+                  ? "bg-PRIMEblue scale-125"
+                  : "bg-PRIMElightgray hover:bg-PRIMEgray"
               }`}
               aria-label={`Go to partner ${index + 1}`}
             ></button>
