@@ -31,8 +31,8 @@ export default function Careers() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4"
           >
-            <h1 className="text-[36pt] sm:text-[48pt] font-gotham-bold">
-              PRIME Foundation
+            <h1 className="text-[36pt] sm:text-[48pt] font-gotham-bold uppercase">
+              Careers
             </h1>
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -44,7 +44,7 @@ export default function Careers() {
                 Home
               </Link>
               <span className="mx-2">/</span>
-              <span className="font-semibold">Prime Foundation</span>
+              <span className="font-semibold">Careers</span>
             </motion.div>
           </motion.div>
         </div>

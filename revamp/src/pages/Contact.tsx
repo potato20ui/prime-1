@@ -59,7 +59,7 @@ export default function Contact() {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="absolute inset-0 flex flex-col items-center justify-center text-PRIMEwhite text-center px-4"
             >
-              <h1 className="text-[48pt] font-bold">CONTACT US</h1>
+              <h1 className="text-[48pt] font-bold uppercase">Contact Us</h1>
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -147,9 +147,7 @@ export default function Contact() {
                     <div className="bg-PRIMEblue/10 p-4 rounded-full inline-block mb-4">
                       {card.icon}
                     </div>
-                    <h3 className="font-bold text-[14pt] mb-3">
-                      {card.title}
-                    </h3>
+                    <h3 className="font-bold text-[14pt] mb-3">{card.title}</h3>
                     <div className="space-y-2">
                       {card.contents.map((item, index) =>
                         "href" in item && item.href ? (
@@ -197,9 +195,7 @@ export default function Contact() {
                       <div className="flex justify-between items-center">
                         <div className="flex items-center gap-2">
                           <MapPin className="w-4 h-4" />
-                          <span className="font-medium">
-                            {location.city}
-                          </span>
+                          <span className="font-medium">{location.city}</span>
                         </div>
                         <span
                           className={`text-sm px-4 py-2 rounded-full ${
@@ -208,7 +204,9 @@ export default function Contact() {
                               : "bg-PRIMEblue text-PRIMEwhite"
                           }`}
                         >
-                          {activeLocation === location.city ? "Viewing" : "View"}
+                          {activeLocation === location.city
+                            ? "Viewing"
+                            : "View"}
                         </span>
                       </div>
                     </button>
