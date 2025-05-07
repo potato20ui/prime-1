@@ -49,35 +49,34 @@ const Awards: React.FC = () => {
 
   return (
     <div className="font-sans bg-gray-100 min-h-screen">
-      <Navbar /> {/* Navbar added here */}
-      
+      <Navbar />
+
       <header className="bg-blue-900 text-white py-0 text-center relative">
         <div
-          className="w-full h-[500px] bg-cover bg-center opacity-60"
+          className="w-full h-[300px] sm:h-[400px] md:h-[500px] bg-cover bg-center opacity-60"
           style={{
-            backgroundImage: 'url("/awards.png")', // Path to your header background image
-            backgroundSize: 'cover',  // Maintain aspect ratio
-            backgroundPosition: 'center center'  // Center the image within the header
+            backgroundImage: 'url("/awards.png")',
+            backgroundSize: "cover",
+            backgroundPosition: "center center",
           }}
         ></div>
-        {/* Text positioned on top of the image */}
-        <h1 className="absolute inset-0 text-4xl font-bold z-10 text-center flex justify-center items-center text-white">
+        <h1 className="absolute inset-0 text-2xl sm:text-4xl font-bold z-10 text-center flex justify-center items-center text-white">
           AWARDS & RECOGNITION
         </h1>
       </header>
 
       {/* 🌟 Featured Awards */}
-      <section className="mt-0"> {/* Removed extra margin-top */}
-        <h2 className="text-2xl text-gray-800 font-semibold mt-8 ml-8 relative">
+      <section className="mt-0">
+        <h2 className="text-xl sm:text-2xl text-gray-800 font-semibold mt-8 ml-4 sm:ml-8 relative">
           Featured Awards
-          <span className="block w-32 h-1 bg-yellow-400 absolute -bottom-2 left-0"></span>
+          <span className="block w-24 sm:w-32 h-1 bg-yellow-400 absolute -bottom-2 left-0"></span>
         </h2>
 
-        <div className="relative px-8 py-6">
+        <div className="relative px-4 sm:px-8 py-6">
           {/* Left Button */}
           <button
             onClick={() => scrollFeatured("left")}
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white rounded-full shadow-lg p-3 z-10 text-2xl"
+            className="hidden sm:block absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 bg-white rounded-full shadow-lg p-2 sm:p-3 z-10 text-xl sm:text-2xl"
           >
             &lt;
           </button>
@@ -90,7 +89,7 @@ const Awards: React.FC = () => {
             {featuredAwards.map((award, idx) => (
               <div
                 key={idx}
-                className="inline-block w-[340px] h-[379px] bg-white rounded-lg shadow-md mx-2 p-4 text-center"
+                className="inline-block w-[85vw] sm:w-[300px] md:w-[340px] h-[379px] bg-white rounded-lg shadow-md mx-2 p-4 text-center"
               >
                 {award.img && (
                   <img
@@ -107,7 +106,7 @@ const Awards: React.FC = () => {
           {/* Right Button */}
           <button
             onClick={() => scrollFeatured("right")}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white rounded-full shadow-lg p-3 z-10 text-2xl"
+            className="hidden sm:block absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 bg-white rounded-full shadow-lg p-2 sm:p-3 z-10 text-xl sm:text-2xl"
           >
             &gt;
           </button>
@@ -117,16 +116,16 @@ const Awards: React.FC = () => {
       {/* 🗓 Awards by Year */}
       {displayYears.map((year) => (
         <section key={year}>
-          <h2 className="text-2xl text-gray-800 font-semibold mt-8 ml-8 relative">
+          <h2 className="text-xl sm:text-2xl text-gray-800 font-semibold mt-8 ml-4 sm:ml-8 relative">
             {year}
             <span className="block w-20 h-1 bg-yellow-400 absolute -bottom-2 left-0"></span>
           </h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-8 py-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4 sm:px-6 md:px-8 py-6">
             {awardsData[year].map((award, idx) => (
               <div
                 key={idx}
-                className="w-[340px] h-[379px] bg-white rounded-lg shadow-md p-4 text-center"
+                className="w-full bg-white rounded-lg shadow-md p-4 text-center"
               >
                 {award.img && (
                   <img
@@ -142,7 +141,7 @@ const Awards: React.FC = () => {
         </section>
       ))}
 
-      <Footer /> {/* Add Footer here */}
+      <Footer />
     </div>
   );
 };
