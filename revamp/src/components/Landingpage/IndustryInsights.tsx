@@ -23,7 +23,7 @@ interface IndustryInsightsProps {
 export default function IndustryInsights({
   onCardClick,
   highlightedCategory,
-  resetFilters
+  resetFilters,
 }: IndustryInsightsProps) {
   const navigate = useNavigate();
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
@@ -36,7 +36,7 @@ export default function IndustryInsights({
       location: "Quezon City",
       image: "/Property/mockup.png",
       category: "office",
-      filterValue: "Office Spaces"
+      filterValue: "Office Spaces",
     },
     {
       id: "retail",
@@ -45,7 +45,7 @@ export default function IndustryInsights({
       location: "Quezon City",
       image: "/Property/mockup.png",
       category: "retail",
-      filterValue: "Retail Spaces"
+      filterValue: "Retail Spaces",
     },
     {
       id: "commercial",
@@ -54,7 +54,7 @@ export default function IndustryInsights({
       location: "Quezon City",
       image: "/Property/mockup.png",
       category: "commercial",
-      filterValue: "Commercial Lots"
+      filterValue: "Commercial Lots",
     },
     {
       id: "warehouse",
@@ -63,7 +63,7 @@ export default function IndustryInsights({
       location: "Alabang",
       image: "/Property/mockup.png",
       category: "warehouse",
-      filterValue: "Industrial Warehouse"
+      filterValue: "Industrial Warehouse",
     },
     {
       id: "industrial",
@@ -72,8 +72,8 @@ export default function IndustryInsights({
       location: "Bulacan",
       image: "/Property/mockup.png",
       category: "industrial",
-      filterValue: "Industrial Lots"
-    }
+      filterValue: "Industrial Lots",
+    },
   ];
 
   const handleCardClick = (filterValue: string) => {
@@ -88,7 +88,8 @@ export default function IndustryInsights({
     if (resetFilters) resetFilters();
   };
 
-  const isCategorySelected = highlightedCategory && highlightedCategory !== "All Categories";
+  const isCategorySelected =
+    highlightedCategory && highlightedCategory !== "All Categories";
 
   return (
     <section className="flex items-center justify-center px-4 py-20 font-gotham-book bg-white">
@@ -106,20 +107,22 @@ export default function IndustryInsights({
             <span>INSIGHTS</span>
           </div>
 
-          <h1 className="text-[24pt] sm:text-5xl font-gotham-bold text-PRIMEblue text-center">
+          <h1 className="text-maintitle font-gotham-bold text-PRIMEblue text-center">
             INDUSTRY <span className="text-PRIMEgray">INSIGHTS</span>
           </h1>
 
           <div className="h-1 w-24 bg-PRIMEblue mt-4 mx-auto rounded-full" />
 
           <div className="flex justify-center mt-10">
-            <h3 className="text-[12pt] font-gotham-book text-white bg-PRIMEblue px-4 py-2 text-center">
+            <h3 className="text-description font-gotham-book text-white bg-PRIMEblue px-4 py-2 text-center">
               Explore properties in Prime Philippines
             </h3>
           </div>
 
-          <p className="text-[12pt] font-gotham-book text-PRIMEgray mt-4 max-w-2xl mx-auto text-center leading-relaxed">
-            Explore Prime Philippines' commercial spaces for lease, featuring premium office buildings and expert insights to find the perfect workspace for your business.
+          <p className="text-description font-gotham-book text-PRIMEgray mt-4 max-w-2xl mx-auto text-center leading-relaxed">
+            Explore Prime Philippines' commercial spaces for lease, featuring
+            premium office buildings and expert insights to find the perfect
+            workspace for your business.
           </p>
 
           {/* Reset Button */}
@@ -132,7 +135,7 @@ export default function IndustryInsights({
             >
               <Button
                 variant="outline"
-                className="text-[12pt] font-gotham-book text-PRIMEgray border-PRIMEgray hover:bg-PRIMEgray hover:text-white"
+                className="text-description font-gotham-book text-PRIMEgray border-PRIMEgray hover:bg-PRIMEgray hover:text-white"
                 onClick={handleReset}
               >
                 Reset All Filters
@@ -179,7 +182,7 @@ const Card = ({
   hoveredCard,
   setHoveredCard,
   highlightedCategory,
-  handleCardClick
+  handleCardClick,
 }: {
   card: PropertyCard;
   hoveredCard: string | null;
@@ -197,7 +200,7 @@ const Card = ({
       animate={{
         scale: isSelected ? 1.05 : 1,
         borderColor: isSelected ? "#0a1e4a" : "#e5e7eb",
-        boxShadow: isSelected ? "0 10px 30px -10px rgba(0, 0, 0, 0.1)" : "none"
+        boxShadow: isSelected ? "0 10px 30px -10px rgba(0, 0, 0, 0.1)" : "none",
       }}
       transition={{ duration: 0.4, ease: "easeOut" }}
       viewport={{ once: true }}
@@ -220,13 +223,19 @@ const Card = ({
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
         <div className="absolute bottom-4 left-4 text-white z-10">
-          <h4 className="text-[14pt] font-gotham-bold drop-shadow-md">{card.title}</h4>
-          <p className="text-[12pt] font-gotham-book text-[#cccccc]">{card.location}</p>
+          <h4 className="text-[14pt] font-gotham-bold drop-shadow-md">
+            {card.title}
+          </h4>
+          <p className="text-description font-gotham-book text-[#cccccc]">
+            {card.location}
+          </p>
         </div>
       </div>
 
       <div className="p-5 relative z-10">
-        <p className="text-[11pt] font-gotham-book text-PRIMEgray mb-4">{card.desc}</p>
+        <p className="text-subcontent font-gotham-book text-PRIMEgray mb-4">
+          {card.desc}
+        </p>
         <Button
           variant="default"
           className="text-white w-full bg-PRIMEblue hover:bg-[#0b3358]"
@@ -235,7 +244,11 @@ const Card = ({
             handleCardClick(card.filterValue);
           }}
         >
-          {isSelected ? <>Viewing {card.filterValue}</> : <>View {card.filterValue}</>}
+          {isSelected ? (
+            <>Viewing {card.filterValue}</>
+          ) : (
+            <>View {card.filterValue}</>
+          )}
         </Button>
       </div>
     </motion.div>

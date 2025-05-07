@@ -66,7 +66,7 @@ const OurServices: FC = () => {
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <h1 className="font-gotham-bold text-center text-PRIMEblue">
+          <h1 className="font-gotham-bold text-center text-PRIMEblue text-maintitle">
             OUR <span className="text-PRIMEgray">SERVICES</span>
           </h1>
           <div className="h-1 w-24 mt-4 mx-auto rounded-full bg-PRIMEblue"></div>

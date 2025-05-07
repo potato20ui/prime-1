@@ -37,8 +37,9 @@ const BlogsSection: FC = () => {
         </div>
 
         {/* Heading */}
-        <h2 className="text-[24pt] sm:text-[32pt] font-gotham-bold text-PRIMEblue text-center">
-          Stay Updated With <span className="text-PRIMEgray">Prime Philippines</span>
+        <h2 className="text-maintitle font-gotham-bold text-PRIMEblue text-center">
+          Stay Updated With{" "}
+          <span className="text-PRIMEgray">Prime Philippines</span>
         </h2>
 
         {/* Line */}
@@ -46,7 +47,9 @@ const BlogsSection: FC = () => {
 
         {/* Description */}
         <p className="text-[12pt] text-PRIMEgray mt-4 max-w-2xl mx-auto text-center leading-relaxed font-gotham-book">
-          Discover the latest trends, company milestones, and insights from Prime Philippines. Stay informed with news, updates, and strategic developments.
+          Discover the latest trends, company milestones, and insights from
+          Prime Philippines. Stay informed with news, updates, and strategic
+          developments.
         </p>
 
         {/* Blog Cards */}

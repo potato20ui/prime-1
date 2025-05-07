@@ -18,15 +18,19 @@ const ITEMS_PER_PAGE = 3;
 
 export default function PropertiesPage() {
   const [properties, setProperties] = useState<Property[]>(initialProperties);
-  const [currentPages, setCurrentPages] = useState(Array(categories.length).fill(0));
+  const [currentPages, setCurrentPages] = useState(
+    Array(categories.length).fill(0)
+  );
   const [filters, setFilters] = useState({
     location: "All Locations",
     category: "All Categories",
     leaseType: "All Types",
-    searchQuery: ""
+    searchQuery: "",
   });
   const [visibleCategories, setVisibleCategories] = useState(categories);
-  const [slideDirection, setSlideDirection] = useState<"left" | "right">("right");
+  const [slideDirection, setSlideDirection] = useState<"left" | "right">(
+    "right"
+  );
 
   // Update visible categories based on selected category filter
   useEffect(() => {
@@ -34,39 +38,68 @@ export default function PropertiesPage() {
       // Show all grouped categories when no filter is selected
       setVisibleCategories([
         {
-          name: (location: string = "Quezon City") => `Featured Office Spaces for leases in ${location}`,
-          description: "Looking to set up your first office? Ease into an easier travel to work with these spaces located at the center of Metro Manila.",
-          filter: "Office Spaces"
+          name: (location: string = "Quezon City") =>
+            `Featured Office Spaces for leases in ${location}`,
+          description:
+            "Looking to set up your first office? Ease into an easier travel to work with these spaces located at the center of Metro Manila.",
+          filter: "Office Spaces",
         },
         {
           name: "Key Retail Building Projects and Commercial Lots",
-          description: "Prime retail spaces for your business in high-traffic areas with excellent visibility.",
-          filter: (prop: Property) => prop.category === "Retail Spaces" || prop.category === "Commercial Lots"
+          description:
+            "Prime retail spaces for your business in high-traffic areas with excellent visibility.",
+          filter: (prop: Property) =>
+            prop.category === "Retail Spaces" ||
+            prop.category === "Commercial Lots",
         },
         {
           name: "Key Industrial Projects and Warehouses",
-          description: "Industrial spaces and warehouses with convenient access to major transportation routes.",
-          filter: (prop: Property) => prop.category === "Industrial Lots" || prop.category === "Industrial Warehouse"
-        }
+          description:
+            "Industrial spaces and warehouses with convenient access to major transportation routes.",
+          filter: (prop: Property) =>
+            prop.category === "Industrial Lots" ||
+            prop.category === "Industrial Warehouse",
+        },
       ]);
     } else {
       // When a specific category is selected, show only that category
-      const filteredCategories = categories.flatMap(cat => {
+      const filteredCategories = categories.flatMap((cat) => {
         if (typeof cat.filter === "string") {
           return cat.filter === filters.category ? [cat] : [];
         } else {
-          if (filters.category === "Retail Spaces" || filters.category === "Commercial Lots") {
-            return cat.name === "Key Retail Building Projects and Commercial Lots" ? [{
-              name: filters.category === "Retail Spaces" ? "Retail Spaces" : "Commercial Lots",
-              description: cat.description,
-              filter: filters.category
-            }] : [];
-          } else if (filters.category === "Industrial Lots" || filters.category === "Industrial Warehouse") {
-            return cat.name === "Key Industrial Projects and Warehouses" ? [{
-              name: filters.category === "Industrial Lots" ? "Industrial Lots" : "Industrial Warehouse",
-              description: cat.description,
-              filter: filters.category
-            }] : [];
+          if (
+            filters.category === "Retail Spaces" ||
+            filters.category === "Commercial Lots"
+          ) {
+            return cat.name ===
+              "Key Retail Building Projects and Commercial Lots"
+              ? [
+                  {
+                    name:
+                      filters.category === "Retail Spaces"
+                        ? "Retail Spaces"
+                        : "Commercial Lots",
+                    description: cat.description,
+                    filter: filters.category,
+                  },
+                ]
+              : [];
+          } else if (
+            filters.category === "Industrial Lots" ||
+            filters.category === "Industrial Warehouse"
+          ) {
+            return cat.name === "Key Industrial Projects and Warehouses"
+              ? [
+                  {
+                    name:
+                      filters.category === "Industrial Lots"
+                        ? "Industrial Lots"
+                        : "Industrial Warehouse",
+                    description: cat.description,
+                    filter: filters.category,
+                  },
+                ]
+              : [];
           }
           return [];
         }
@@ -79,22 +112,24 @@ export default function PropertiesPage() {
   }, [filters.category]);
 
   // Apply all filters to properties based on selected category
-  const getFilteredProperties = (category: typeof categories[0]) => {
-    let filtered = typeof category.filter === "string" 
-      ? properties.filter(prop => prop.category === category.filter)
-      : properties.filter(category.filter);
+  const getFilteredProperties = (category: (typeof categories)[0]) => {
+    let filtered =
+      typeof category.filter === "string"
+        ? properties.filter((prop) => prop.category === category.filter)
+        : properties.filter(category.filter);
 
     if (filters.location !== "All Locations") {
-      filtered = filtered.filter(p => p.location === filters.location);
+      filtered = filtered.filter((p) => p.location === filters.location);
     }
     if (filters.leaseType !== "All Types") {
-      filtered = filtered.filter(p => p.leaseType === filters.leaseType);
+      filtered = filtered.filter((p) => p.leaseType === filters.leaseType);
     }
     if (filters.searchQuery) {
       const query = filters.searchQuery.toLowerCase();
-      filtered = filtered.filter(p =>
-        p.title.toLowerCase().includes(query) ||
-        p.location.toLowerCase().includes(query)
+      filtered = filtered.filter(
+        (p) =>
+          p.title.toLowerCase().includes(query) ||
+          p.location.toLowerCase().includes(query)
       );
     }
 
@@ -105,9 +140,11 @@ export default function PropertiesPage() {
   // Handle next/previous pagination
   const handleNext = (index: number) => {
     setSlideDirection("left");
-    setCurrentPages(prev => {
+    setCurrentPages((prev) => {
       const newPages = [...prev];
-      const total = Math.ceil(getFilteredProperties(visibleCategories[index]).length / ITEMS_PER_PAGE);
+      const total = Math.ceil(
+        getFilteredProperties(visibleCategories[index]).length / ITEMS_PER_PAGE
+      );
       newPages[index] = Math.min(newPages[index] + 1, total - 1);
       return newPages;
     });
@@ -115,7 +152,7 @@ export default function PropertiesPage() {
 
   const handlePrev = (index: number) => {
     setSlideDirection("right");
-    setCurrentPages(prev => {
+    setCurrentPages((prev) => {
       const newPages = [...prev];
       newPages[index] = Math.max(newPages[index] - 1, 0);
       return newPages;
@@ -123,9 +160,11 @@ export default function PropertiesPage() {
   };
 
   // Handle filter field updates
-  const handleFilterChange = (e: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>) => {
+  const handleFilterChange = (
+    e: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>
+  ) => {
     const { name, value } = e.target;
-    setFilters(prev => ({ ...prev, [name]: value }));
+    setFilters((prev) => ({ ...prev, [name]: value }));
   };
 
   // Add new sample property for testing/demo purposes
@@ -137,9 +176,9 @@ export default function PropertiesPage() {
       leaseType: "For Lease",
       category: "Retail Spaces",
       png: "/images/properties/sample.png",
-      type: ""
+      type: "",
     };
-    setProperties(prev => [...prev, newProperty]);
+    setProperties((prev) => [...prev, newProperty]);
   };
 
   return (
@@ -149,22 +188,27 @@ export default function PropertiesPage() {
       {/* Banner Section */}
       <section className="relative mb-10">
         <div className="w-full h-[500px] bg-[url('/Property/Properties.png')] bg-cover bg-center rounded-lg relative group">
-           {/* Overlay */}
-    <div className="absolute inset-0 bg-PRIMEblue opacity-50"></div> {/* Updated to match Careers color */}
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-PRIMEblue opacity-50"></div>{" "}
+          {/* Updated to match Careers color */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="absolute inset-0 flex flex-col items-center justify-center text-PRIMEwhite text-center px-4"
           >
-            <h1 className="text-[36pt] sm:text-[48pt] font-bold">PROPERTIES</h1>
+            <h1 className="text-[36pt] sm:text-[48pt] font-bold uppercase">
+              Properties
+            </h1>
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
               className="inline-flex items-center px-6 py-3 border-2 border-PRIMEwhite rounded-full text-lg font-semibold mt-4"
             >
-              <Link to="/" className="hover:underline">Home</Link>
+              <Link to="/" className="hover:underline">
+                Home
+              </Link>
               <span className="mx-2">/</span>
               <span className="font-semibold">Properties</span>
             </motion.div>
@@ -185,16 +229,26 @@ export default function PropertiesPage() {
           const filtered = getFilteredProperties(category);
           const page = currentPages[index];
           const totalPages = Math.ceil(filtered.length / ITEMS_PER_PAGE);
-          const current = filtered.slice(page * ITEMS_PER_PAGE, page * ITEMS_PER_PAGE + ITEMS_PER_PAGE);
+          const current = filtered.slice(
+            page * ITEMS_PER_PAGE,
+            page * ITEMS_PER_PAGE + ITEMS_PER_PAGE
+          );
 
-          const categoryName = typeof category.name === "function"
-            ? category.name(filters.location === "All Locations" ? "Quezon City" : filters.location)
-            : category.name;
+          const categoryName =
+            typeof category.name === "function"
+              ? category.name(
+                  filters.location === "All Locations"
+                    ? "Quezon City"
+                    : filters.location
+                )
+              : category.name;
 
           return (
             <section key={index} className="space-y-6">
               <div className="text-center">
-                <h2 className="text-2xl font-semibold text-PRIMEblack mb-2">{categoryName}</h2>
+                <h2 className="text-2xl font-semibold text-PRIMEblack mb-2">
+                  {categoryName}
+                </h2>
                 <p className="text-sm text-PRIMEgray">{category.description}</p>
               </div>
 
@@ -217,13 +271,19 @@ export default function PropertiesPage() {
                         <AnimatePresence mode="wait">
                           <motion.div
                             key={`${index}-${page}`}
-                            initial={{ x: slideDirection === "left" ? 300 : -300, opacity: 0.1 }}
+                            initial={{
+                              x: slideDirection === "left" ? 300 : -300,
+                              opacity: 0.1,
+                            }}
                             animate={{ x: 0, opacity: 1 }}
-                            exit={{ x: slideDirection === "left" ? -300 : 300, opacity: 0.1 }}
+                            exit={{
+                              x: slideDirection === "left" ? -300 : 300,
+                              opacity: 0.1,
+                            }}
                             transition={{ duration: 0.6, ease: "easeInOut" }}
                             className="flex flex-wrap justify-center gap-6"
                           >
-                            {current.map(prop => (
+                            {current.map((prop) => (
                               <PropertyCard key={prop.id} property={prop} />
                             ))}
                           </motion.div>
@@ -241,24 +301,31 @@ export default function PropertiesPage() {
                       <ChevronRight />
                     </Button>
                   </div>
-                  
 
-                        {/* Paginataion Dots */}
+                  {/* Paginataion Dots */}
                   {totalPages > 1 && (
                     <div className="flex justify-center mt-4">
                       <div className="flex gap-2 px-4 py-3 bg-PRIMElightgray rounded-full shadow-sm">
-                        {Array.from({ length: totalPages }).map((_, dotIndex) => (
-                          <div
-                            key={dotIndex}
-                            className={`w-2 h-2 rounded-full ${dotIndex === page ? "bg-PRIMEblue" : "bg-PRIMEgray"}`}
-                          />
-                        ))}
+                        {Array.from({ length: totalPages }).map(
+                          (_, dotIndex) => (
+                            <div
+                              key={dotIndex}
+                              className={`w-2 h-2 rounded-full ${
+                                dotIndex === page
+                                  ? "bg-PRIMEblue"
+                                  : "bg-PRIMEgray"
+                              }`}
+                            />
+                          )
+                        )}
                       </div>
                     </div>
                   )}
                 </>
               ) : (
-                <p className="text-center text-PRIMEgray">No properties found in this category.</p>
+                <p className="text-center text-PRIMEgray">
+                  No properties found in this category.
+                </p>
               )}
             </section>
           );

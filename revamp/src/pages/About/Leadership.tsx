@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { motion } from "framer-motion"; 
+import React from "react";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer";
 
@@ -12,20 +12,24 @@ interface TeamMember {
 
 const PrimeFoundation = (title: string, team: TeamMember[]) => (
   <>
-    <h3 className="text-[40px] font-gotham-bold text-[var(--color-PRIMEblue)] mb-6 text-center">{title}</h3>
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 mb-12">
+    <h3 className="text-maintitle font-gotham-bold text-PRIMEblue text-center mb-10 ">
+      {title}
+    </h3>
+    <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-10 lg:gap-15 mx-auto mb-20">
       {team.map((member, i) => (
         <div
           key={i}
-          className="bg-[var(--color-PRIMEwhite)] rounded-lg shadow-md w-[350px] h-[450px] flex flex-col items-center"
+          className="flex flex-col w-[350px] h-[450px] items-center shadow-md"
         >
           <img
             src={member.image}
             alt={member.name}
-            className="w-[350px] h-[350px] object-cover rounded-t-lg"
+            className="w-[350px] h-[350px] object-cover"
           />
-          <div className="w-full h-[auto] bg-[#FFFEFE] flex flex-col items-start justify-center p-4 rounded-b-lg">
-            <h4 className="text-lg font-gotham-bold text-[var(--color-PRIMEblack)]">{member.name}</h4>
+          <div className="flex flex-col w-full h-[100px] justify-center px-5">
+            <h4 className="text-lg font-gotham-bold text-[var(--color-PRIMEblack)]">
+              {member.name}
+            </h4>
             <p className="text-sm text-[#A3B1C2]">{member.role}</p>
           </div>
         </div>
@@ -35,44 +39,46 @@ const PrimeFoundation = (title: string, team: TeamMember[]) => (
 );
 
 const teamLeaders: TeamMember[] = [
-  { name: 'Honey A', role: 'Team Leader', image: '/default.png' },
-  { name: 'Hanie B', role: 'Team Leader', image: '/default.png' },
-  { name: 'Hany C', role: 'Team Leader', image: '/default.png' },
+  { name: "Honey A", role: "Team Leader", image: "/default.png" },
+  { name: "Hanie B", role: "Team Leader", image: "/default.png" },
+  { name: "Hany C", role: "Team Leader", image: "/default.png" },
 ];
 
 const marketingTeam: TeamMember[] = [
-  { name: 'Stitch A', role: 'Marketing Specialist', image: '/default.png' },
-  { name: 'Stitch B', role: 'Marketing Coordinator', image: '/default.png' },
-  { name: 'Stitch C', role: 'Social Media Manager', image: '/default.png' },
-  { name: 'Stitch D', role: 'Content Creator', image: '/default.png' },
-  { name: 'Stitch E', role: 'Digital Marketer', image: '/default.png' },
-  { name: 'Stitch F', role: 'PR Executive', image: '/default.png' },
+  { name: "Stitch A", role: "Marketing Specialist", image: "/default.png" },
+  { name: "Stitch B", role: "Marketing Coordinator", image: "/default.png" },
+  { name: "Stitch C", role: "Social Media Manager", image: "/default.png" },
+  { name: "Stitch D", role: "Content Creator", image: "/default.png" },
+  { name: "Stitch E", role: "Digital Marketer", image: "/default.png" },
+  { name: "Stitch F", role: "PR Executive", image: "/default.png" },
 ];
 
 const Team: React.FC = () => {
   return (
     <div className="flex-col items-center">
       <Navbar />
-      
+
       {/* Banner Section */}
       <section className="relative mb-10">
         <div className="w-full h-[500px] bg-[url('/Property/Properties.png')] bg-cover bg-center rounded-lg relative group">
           {/* Overlay */}
-          <div className="absolute inset-0 bg-[#0E406F]/30 transition duration-300"></div>
+          <div className="absolute inset-0 bg-PRIMEblue/50 transition duration-300"></div>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4"
+            className="absolute inset-0 flex flex-col items-center justify-center text-PRIMEwhite text-center px-4"
           >
-            <h1 className="text-[36pt] sm:text-[48pt] font-gotham-bold">PRIME Foundation</h1>
+            <h1>PRIME Foundation</h1>
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
               className="inline-flex items-center px-6 py-3 border-2 border-white rounded-full text-lg font-semibold mt-4"
             >
-              <Link to="/" className="hover:underline">Home</Link>
+              <Link to="/" className="hover:underline">
+                Home
+              </Link>
               <span className="mx-2">/</span>
               <span className="font-semibold">Prime Foundation</span>
             </motion.div>
@@ -82,49 +88,73 @@ const Team: React.FC = () => {
 
       {/* Main Content Wrapper */}
       <div className="max-w-[1400px] mx-auto w-full">
-        
         {/* Founder Section */}
-        <section className="container mx-auto p-8 flex flex-col md:flex-row items-center gap-8 mb-10">
+        <section className="mx-auto p-8 flex flex-col lg:flex-row items-center gap-8 mb-10">
           <img
             src="/Leadership/SirJet.png"
             alt="Founder"
             className="w-[350px] h-[450px] rounded-lg shadow-lg object-cover"
           />
-          <div className="w-full">
-            <h2 className="text-3xl font-gotham-bold mb-4 text-[var(--color-PRIMEblack)]">Jet Yu</h2>
-            <h3 className="text-xl font-semibold mb-4 text-[#0A0A0A]">Chief Executive Officer</h3>
-            <p className="text-[var(--color-PRIMEgray)] leading-relaxed">
-              Sir Jet Yu is the visionary behind the PRIME Foundation. With years of experience in the industry, he strives to create a platform that nurtures young leaders and innovators through mentorship, education, and opportunities.
-            </p>
-            <p className="text-[var(--color-PRIMEgray)] leading-relaxed mt-4">
-              Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
-            </p>
+          <div className="w-full md:px-25 lg:px-0">
+            <div className="text-center mb-4 lg:text-left">
+              <h2 className="text-3xl">Jet Yu</h2>
+              <h3 className="text-xl">Chief Executive Officer</h3>
+            </div>
+
+            <div className=" text-PRIMEgray leading-relaxed text-justify space-y-6">
+              <p>
+                Sir Jet Yu is the visionary behind the PRIME Foundation. With
+                years of experience in the industry, he strives to create a
+                platform that nurtures young leaders and innovators through
+                mentorship, education, and opportunities.
+              </p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque
+                faucibus ex sapien vitae pellentesque sem placerat. In id cursus
+                mi pretium tellus duis convallis. Tempus leo eu aenean sed diam
+                urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum
+                egestas. Iaculis massa nisl malesuada lacinia integer nunc
+                posuere. Ut hendrerit semper vel class aptent taciti sociosqu.
+                Ad litora torquent per conubia nostra inceptos himenaeos.
+              </p>
+            </div>
           </div>
         </section>
 
         {/* Highlight Section */}
-        <section className="container mx-auto p-8 flex flex-col md:flex-row-reverse items-center gap-8 mb-10">
+        <section className="mx-auto p-8 flex flex-col lg:flex-row-reverse items-center gap-8 mb-10">
           <img
             src="/Leadership/SirCholo.png"
             alt="Highlight"
             className="w-[350px] h-[450px] rounded-lg shadow-lg object-cover"
           />
-          <div className="w-full">
-            <h2 className="text-3xl font-gotham-bold mb-4 text-[var(--color-PRIMEblack)] text-right">Cholo Florencio</h2>
-            <h3 className="text-xl font-semibold mb-4 text-[#0A0A0A] text-right">Executive Vice-President</h3>
-            <p className="text-[var(--color-PRIMEgray)] leading-relaxed text-justify">
-              Since joining PRIME in 2014, he has taken various roles in Business Development, Landlord Representation, Leasing & Sales, and Research & Advisory. As a seasoned real estate professional with over 15 years of experience in the Philippines property market, he has been involved in over 200 transactions with property developers, land bankers, landlords, and occupiers.
-            </p>
-            <p className="text-[var(--color-PRIMEgray)] leading-relaxed text-justify mt-4">
-              He has led teams managing over PhP15 Billion worth of accounts and secured exclusive leasing agency contracts for PRIME with multiple commercial developments.
-            </p>
+          <div className="w-full md:px-25 lg:px-0">
+            <div className="text-center mb-4 space-y-2 lg:text-right">
+              <h3 className="text-3xl">Cholo Florencio</h3>
+              <h3 className="text-xl">Executive Vice-President</h3>
+            </div>
+
+            <div className=" text-PRIMEgray leading-relaxed text-justify space-y-6">
+              <p>
+                Since joining PRIME in 2014, he has taken various roles in
+                Business Development, Landlord Representation, Leasing & Sales,
+                and Research & Advisory. As a seasoned real estate professional
+                with over 15 years of experience in the Philippines property
+                market, he has been involved in over 200 transactions with
+                property developers, land bankers, landlords, and occupiers.
+              </p>
+              <p>
+                He has led teams managing over PhP15 Billion worth of accounts
+                and secured exclusive leasing agency contracts for PRIME with
+                multiple commercial developments.
+              </p>
+            </div>
           </div>
         </section>
 
         {/* Team Sections */}
-        <section className="container mx-auto ">
+        <section className="container mx-auto flex flex-col max-w-[1400px]">
           {PrimeFoundation("Team Leaders", teamLeaders)}
-          <div className="my-15" />
           {PrimeFoundation("Marketing Team", marketingTeam)}
         </section>
       </div>

@@ -28,8 +28,10 @@ export default function Testimonials() {
   const [isInView, setIsInView] = useState(false); // To track if the section is in view
   const sectionRef = useRef(null);
 
-  const handlePrev = () => setIndex((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
-  const handleNext = () => setIndex((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
+  const handlePrev = () =>
+    setIndex((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
+  const handleNext = () =>
+    setIndex((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
 
   // Intersection Observer to detect when the section is in view
   useEffect(() => {
@@ -61,7 +63,10 @@ export default function Testimonials() {
   }, [isInView]);
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-white py-10 px-4 sm:px-8 md:px-10 lg:px-20 font-gotham-book">
+    <section
+      ref={sectionRef}
+      className="relative w-full bg-white py-10 px-4 sm:px-8 md:px-10 lg:px-20 font-gotham-book"
+    >
       <div className="max-w-[1400px] mx-auto p-8 md:p-12">
         {/* Section Tag */}
         <div className="flex justify-center items-center mb-8 text-PRIMEblue font-gotham-bold text-sm tracking-wide space-x-2">
@@ -70,7 +75,7 @@ export default function Testimonials() {
         </div>
 
         {/* Heading */}
-        <h2 className="text-[22pt] font-gotham-bold text-center text-[#0a0a0a] mb-10">
+        <h2 className="text-[20pt] md:text-4xl font-gotham-bold text-center text-[#0a0a0a] mb-10">
           What Our Clients Say
         </h2>
 
@@ -82,7 +87,7 @@ export default function Testimonials() {
             className="absolute -left-8 top-1/2 -translate-y-1/2 w-9 h-9 bg-PRIMEwhite border border-PRIMElightgray rounded-full flex justify-center items-center shadow-lg hover:bg-PRIMEblue hover:text-white transition"
             aria-label="Previous testimonial"
           >
-            <FaChevronLeft/>
+            <FaChevronLeft />
           </button>
 
           {/* Testimonial Animation */}
@@ -102,8 +107,12 @@ export default function Testimonials() {
               />
               <div className="text-base md:text-lg leading-relaxed text-center md:text-left max-w-xl font-gotham-book">
                 <p className="mb-4">"{testimonials[index].text}"</p>
-                <p className="font-gotham-bold text-lg">{testimonials[index].name}</p>
-                <p className="text-sm text-gray-400">{testimonials[index].location}</p>
+                <p className="font-gotham-bold text-lg">
+                  {testimonials[index].name}
+                </p>
+                <p className="text-sm text-gray-400">
+                  {testimonials[index].location}
+                </p>
               </div>
             </motion.div>
           </AnimatePresence>
@@ -123,7 +132,9 @@ export default function Testimonials() {
               <span
                 key={i}
                 className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  index === i ? "bg-PRIMEblue scale-110" : "bg-gray-400 opacity-40"
+                  index === i
+                    ? "bg-PRIMEblue scale-110"
+                    : "bg-gray-400 opacity-40"
                 }`}
               ></span>
             ))}
