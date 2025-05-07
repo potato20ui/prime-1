@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
-import { FaList} from "react-icons/fa";
+import { FaList } from "react-icons/fa";
+
 const blogItems = [
   {
     id: 1,
@@ -27,24 +28,28 @@ const blogItems = [
 
 const BlogsSection: FC = () => {
   return (
-    <section className="flex items-center justify-center px-4 py-20 font-Gotham-sans-serif">
+    <section className="flex items-center justify-center px-4 py-20 font-gotham-book bg-white">
       <div className="w-full max-w-[1400px] flex flex-col items-center">
         {/* Top label */}
-        <div className="flex justify-center items-center mb-8 text-[#0B3B71] font-bold text-sm tracking-wide space-x-2">
+        <div className="flex justify-center items-center mb-8 text-PRIMEblue font-gotham-bold text-sm tracking-wide space-x-2">
           <FaList className="text-xl" />
           <span>BLOGS / ARTICLE</span>
         </div>
 
         {/* Heading */}
-        <h2 className="text-[24pt] sm:text-[32pt] font-gotham-bold text-[#0E406F] text-center">
-          Stay Updated With <span className="text-[#666666]">Prime Philippines</span>
+        <h2 className="text-maintitle font-gotham-bold text-PRIMEblue text-center">
+          Stay Updated With{" "}
+          <span className="text-PRIMEgray">Prime Philippines</span>
         </h2>
 
-        <div className="h-1 w-24 bg-[#0E406F] mt-4 mx-auto rounded-full"></div>
+        {/* Line */}
+        <div className="h-1 w-24 bg-PRIMEblue mt-4 mx-auto rounded-full" />
 
         {/* Description */}
-        <p className="text-[12pt] font-gotham-book text-[#666666] mt-4 max-w-2xl mx-auto text-center leading-relaxed">
-          Discover the latest trends, company milestones, and insights from Prime Philippines. Stay informed with news, updates, and strategic developments.
+        <p className="text-[12pt] text-PRIMEgray mt-4 max-w-2xl mx-auto text-center leading-relaxed font-gotham-book">
+          Discover the latest trends, company milestones, and insights from
+          Prime Philippines. Stay informed with news, updates, and strategic
+          developments.
         </p>
 
         {/* Blog Cards */}
@@ -52,31 +57,34 @@ const BlogsSection: FC = () => {
           {blogItems.map((item) => (
             <div
               key={item.id}
-              className="group border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 bg-white"
+              className="group border border-PRIMElightgray rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 bg-PRIMEwhite"
             >
+              {/* Image */}
               <div className="relative h-[300px] overflow-hidden">
                 <img
                   src={item.image}
                   alt={item.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
-                <span className="absolute top-3 right-3 bg-[#0B2E61] text-white text-[9pt] font-semibold px-3 py-1 rounded-full shadow-sm">
+                <span className="absolute top-3 right-3 bg-PRIMEblue text-PRIMEwhite text-[10pt] font-semibold px-3 py-1 rounded-full shadow-sm">
                   Featured
                 </span>
               </div>
 
-              <div className="p-5 flex flex-col justify-between min-h-[160px]">
+              {/* Text */}
+              <div className="p-5 flex flex-col justify-between min-h-[auto]">
                 <div>
-                  <p className="text-[11pt] font-gotham-bold text-[#0B2E61] mb-1 line-clamp-2 hover:underline cursor-pointer">
+                  <p className="text-[12pt] font-gotham-bold text-PRIMEblue mb-1 line-clamp-2 hover:underline cursor-pointer">
                     {item.title}
                   </p>
-                  <p className="text-[9pt] font-gotham-book text-[#666666] mb-4">
+                  <p className="text-[10pt] font-gotham-book text-PRIMEgray mb-4">
                     {item.date}
                   </p>
                 </div>
+
                 <Link
                   to="/pressroom"
-                  className="text-[10pt] text-[#0B2E61] hover:underline font-gotham-book mt-auto"
+                  className="text-[12pt] text-PRIMEblue hover:underline font-gotham-book mt-auto"
                   onClick={() =>
                     window.scrollTo({
                       top: 0,

@@ -7,8 +7,7 @@ const testimonials = [
     name: "Andy Smith",
     location: "Los Angeles, CA",
     text: "Prime Philippines made finding the perfect commercial space seamless and stress-free. Ideal for businesses seeking premium office locations!",
-    image:
-      "/Rhon.png",
+    image: "/Rhon.png",
   },
   {
     name: "Samantha Lee",
@@ -68,27 +67,27 @@ export default function Testimonials() {
       ref={sectionRef}
       className="relative w-full bg-white py-10 px-4 sm:px-8 md:px-10 lg:px-20 font-gotham-book"
     >
-      <div className="max-w-[1400px] mx-auto bg-[#E6F0FF] rounded-3xl shadow-xl p-8 md:p-12">
+      <div className="max-w-[1400px] mx-auto p-8 md:p-12">
         {/* Section Tag */}
-        <div className="flex justify-center items-center mb-6 text-[#0B3B71] font-bold text-sm tracking-wide space-x-2">
-          <FaUserCircle className="text-[xl]" />
+        <div className="flex justify-center items-center mb-8 text-PRIMEblue font-gotham-bold text-sm tracking-wide space-x-2">
+          <FaUserCircle className="text-xl" />
           <span>CLIENT TESTIMONIALS</span>
         </div>
 
         {/* Heading */}
-        <h2 className="text-[22pt] font-gotham-bold text-center text-[#0a0a0a] mb-10">
+        <h2 className="text-[20pt] md:text-4xl font-gotham-bold text-center text-[#0a0a0a] mb-10">
           What Our Clients Say
         </h2>
 
         {/* Carousel Container */}
-        <div className="relative max-w-2xl mx-auto px-6 sm:px-10">
+        <div className="relative max-w-3xl mx-auto px-6 sm:px-10">
           {/* Left Arrow */}
           <button
             onClick={handlePrev}
-            className="absolute -left-8 top-1/2 -translate-y-1/2 w-9 h-9 bg-white border border-gray-300 rounded-full flex justify-center items-center shadow-lg hover:bg-[#0B3B71] hover:text-white transition"
+            className="absolute -left-8 top-1/2 -translate-y-1/2 w-9 h-9 bg-PRIMEwhite border border-PRIMElightgray rounded-full flex justify-center items-center shadow-lg hover:bg-PRIMEblue hover:text-white transition"
             aria-label="Previous testimonial"
           >
-            <FaChevronLeft className="text-black hover:text-white transition-colors" />
+            <FaChevronLeft />
           </button>
 
           {/* Testimonial Animation */}
@@ -99,7 +98,7 @@ export default function Testimonials() {
               animate={{ opacity: isInView ? 1 : 0, x: 0 }}
               exit={{ opacity: 0, x: -50 }}
               transition={{ duration: 0.5 }}
-              className="bg-[#043A6B] rounded-2xl p-8 md:p-10 text-white flex flex-col md:flex-row items-center gap-6 md:gap-10"
+              className="bg-PRIMEblue rounded-2xl p-8 md:p-10 text-PRIMEwhite flex flex-col md:flex-row items-center gap-6 md:gap-10"
             >
               <img
                 src={testimonials[index].image}
@@ -108,8 +107,12 @@ export default function Testimonials() {
               />
               <div className="text-base md:text-lg leading-relaxed text-center md:text-left max-w-xl font-gotham-book">
                 <p className="mb-4">"{testimonials[index].text}"</p>
-                <p className="font-gotham-bold text-lg">{testimonials[index].name}</p>
-                <p className="text-sm text-[#A3B1C2]">{testimonials[index].location}</p>
+                <p className="font-gotham-bold text-lg">
+                  {testimonials[index].name}
+                </p>
+                <p className="text-sm text-gray-400">
+                  {testimonials[index].location}
+                </p>
               </div>
             </motion.div>
           </AnimatePresence>
@@ -117,10 +120,10 @@ export default function Testimonials() {
           {/* Right Arrow */}
           <button
             onClick={handleNext}
-            className="absolute -right-8 top-1/2 -translate-y-1/2 w-9 h-9 bg-white border border-gray-300 rounded-full flex justify-center items-center shadow-lg hover:bg-[#0B3B71] hover:text-white transition"
+            className="absolute -right-8 top-1/2 -translate-y-1/2 w-9 h-9 bg-white border border-gray-300 rounded-full flex justify-center items-center shadow-lg hover:bg-PRIMEblue hover:text-white transition"
             aria-label="Next testimonial"
           >
-            <FaChevronRight className="text-black hover:text-white transition-colors" />
+            <FaChevronRight />
           </button>
 
           {/* Dots */}
@@ -130,8 +133,8 @@ export default function Testimonials() {
                 key={i}
                 className={`w-2 h-2 rounded-full transition-all duration-300 ${
                   index === i
-                    ? "bg-[#0B3B71] scale-110"
-                    : "bg-[#7A7A7A] opacity-40"
+                    ? "bg-PRIMEblue scale-110"
+                    : "bg-gray-400 opacity-40"
                 }`}
               ></span>
             ))}

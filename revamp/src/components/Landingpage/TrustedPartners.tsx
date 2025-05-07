@@ -14,11 +14,9 @@ export default function TrustedPartners() {
   const [current, setCurrent] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
-  
-  // Scroll animation trigger state
+
   const [inView, setInView] = useState(false);
 
-  // Intersection Observer to trigger animations when section comes into view
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -29,10 +27,10 @@ export default function TrustedPartners() {
         }
       },
       {
-        threshold: 0.5, // Trigger when 50% of the section is visible
+        threshold: 0.5,
       }
     );
-    
+
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
@@ -51,17 +49,14 @@ export default function TrustedPartners() {
     return () => clearInterval(interval);
   }, [current]);
 
-  // Navigate to the next partner
   const handleNext = () => {
     setCurrent((prev) => (prev + 1) % partners.length);
   };
 
-  // Navigate to the previous partner
   const handlePrev = () => {
     setCurrent((prev) => (prev - 1 + partners.length) % partners.length);
   };
 
-  // Handle click on the dots to navigate to a specific partner
   const handleDotClick = (index: number) => {
     setCurrent(index);
   };
@@ -77,29 +72,30 @@ export default function TrustedPartners() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: inView ? 1 : 0, y: inView ? 0 : 20 }}
           transition={{ duration: 0.6 }}
-          className="flex justify-center items-center text-[#0B3B71] font-bold text-sm md:text-base tracking-wide space-x-2"
+          className="flex justify-center items-center mb-8 text-PRIMEblue font-gotham-bold text-sm md:text-base tracking-wide space-x-2"
         >
-          <div className="flex justify-center items-center mb-8 text-[#0B3B71] font-bold text-sm tracking-wide space-x-2">
-            <FaHandshake className="text-xl" />
-            <span>TRUSTED PARTNERSHIPS</span>
-          </div>
+          <FaHandshake className="text-xl" />
+          <span>TRUSTED PARTNERSHIPS</span>
         </motion.div>
 
         <motion.h2
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: inView ? 1 : 0, y: inView ? 0 : -20 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-[20pt] md:text-4xl text-[#111827] font-bold text-center tracking-tight"
+          className="text-[20pt] md:text-4xl text-[var(--color-dark-gray)] font-bold text-center tracking-tight"
         >
           Our Valued Partners
         </motion.h2>
 
         {/* Carousel */}
-        <div ref={containerRef} className="relative w-full max-w-[1000px] flex items-center justify-center">
+        <div
+          ref={containerRef}
+          className="relative w-full max-w-[1000px] flex items-center justify-center"
+        >
           {/* Navigation Arrows */}
           <button
             onClick={handlePrev}
-            className="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 z-20 w-8 h-8 md:w-10 md:h-10 rounded-full bg-white shadow-md flex items-center justify-center text-[#0B3B71] hover:bg-[#0B3B71] hover:text-white transition-all"
+            className="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 z-20 w-8 h-8 md:w-10 md:h-10 rounded-full bg-PRIMEwhite shadow-md flex items-center justify-center text-[var(--color-PRIMEblue)] hover:bg-[var(--color-PRIMEblue)] hover:text-white transition-all"
             aria-label="Previous partner"
           >
             <FaChevronLeft className="text-md md:text-lg" />
@@ -107,7 +103,7 @@ export default function TrustedPartners() {
 
           <button
             onClick={handleNext}
-            className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 z-20 w-8 h-8 md:w-10 md:h-10 rounded-full bg-white shadow-md flex items-center justify-center text-[#0B3B71] hover:bg-[#0B3B71] hover:text-white transition-all"
+            className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 z-20 w-8 h-8 md:w-10 md:h-10 rounded-full bg-PRIMEwhite shadow-md flex items-center justify-center text-[var(--color-PRIMEblue)] hover:bg-[var(--color-PRIMEblue)] hover:text-white transition-all"
             aria-label="Next partner"
           >
             <FaChevronRight className="text-md md:text-lg" />
@@ -125,7 +121,10 @@ export default function TrustedPartners() {
               onClick={handlePrev}
             >
               <img
-                src={partners[(current - 1 + partners.length) % partners.length].logo}
+                src={
+                  partners[(current - 1 + partners.length) % partners.length]
+                    .logo
+                }
                 alt="Previous Partner"
                 className="w-full h-full object-contain grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110"
               />
@@ -177,7 +176,9 @@ export default function TrustedPartners() {
               key={index}
               onClick={() => handleDotClick(index)}
               className={`h-2 w-2 rounded-full transition-all duration-300 ${
-                current === index ? "bg-[#0B3B71] scale-125" : "bg-gray-300 hover:bg-gray-400"
+                current === index
+                  ? "bg-PRIMEblue scale-125"
+                  : "bg-PRIMElightgray hover:bg-PRIMEgray"
               }`}
               aria-label={`Go to partner ${index + 1}`}
             ></button>

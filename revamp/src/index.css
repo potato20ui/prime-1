@@ -5,7 +5,7 @@
 @font-face {
   font-family: "Gotham Book";
   src: url("./fonts/Gotham-Book.woff2") format("woff2"),
-       url("./fonts/Gotham-Book.woff") format("woff");
+    url("./fonts/Gotham-Book.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -14,7 +14,7 @@
 @font-face {
   font-family: "Gotham Bold";
   src: url("./fonts/Gotham-Bold.woff2") format("woff2"),
-       url("./fonts/Gotham-Bold.woff") format("woff");
+    url("./fonts/Gotham-Bold.woff") format("woff");
   font-weight: bold;
   font-style: normal;
 }
@@ -25,11 +25,16 @@ body {
 }
 
 /* Apply Gotham Bold for headings or strong text */
-h1, h2, h3, h4, h5, h6, .gotham-bold {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.gotham-bold {
   font-family: "Gotham Bold", Arial, sans-serif;
   font-weight: bold; /* Ensures bold styling */
 }
-
 
 .dragging {
   scroll-behavior: auto !important;
@@ -38,4 +43,55 @@ h1, h2, h3, h4, h5, h6, .gotham-bold {
 
 html {
   scroll-behavior: smooth;
+}
+
+@theme {
+  --color-PRIMEblue: #003366;
+  --color-PRIMEblack: #181d1e;
+  --color-PRIMEyellow: #ffbf00;
+  --color-PRIMEwhite: #ffffff;
+  --color-PRIMEred: #cc0000;
+  --color-PRIMEgray: #6e7375;
+  --color-PRIMElightgray: #b6babe;
+}
+
+@layer base {
+  /* for main titles */
+  h1 {
+    font-size: 60px;
+  }
+
+  /* for sub titles */
+  h2 {
+    font-size: 48px;
+  }
+
+  /* for body/content */
+  h6 {
+    font-size: 20px;
+  }
+
+  .text-title {
+    @apply text-[60px];
+  }
+
+  .text-maintitle {
+    @apply sm:text-[32px] md:text-[48px];
+  }
+
+  .text-subtitle {
+    @apply sm:text-[24px] md:text-[30px];
+  }
+
+  .text-content {
+    @apply text-[20px];
+  }
+
+  .text-description {
+    @apply text-[16px];
+  }
+
+  .text-subcontent {
+    @apply text-[14px];
+  }
 }

@@ -1,13 +1,13 @@
-import Navbar from "@/components/Landingpage/Navbar";
+import Navbar from "@/components/Navbar/Navbar";
 import Hero from "@/components/Landingpage/Hero";
-import Footer from "@/components/Landingpage/Footer";
+import Footer from "@/components/Footer";
 import IndustryInsights from "@/components/Landingpage/IndustryInsights";
 import OurServices from "@/components/Landingpage/OurServices";
 import AboutSection from "@/components/Landingpage/AboutSection";
 import BlogSection from "@/components/Landingpage/BlogSection";
 import TrustedPartners from '@/components/Landingpage/TrustedPartners';
 import Testimonials from '@/components/Landingpage/Testimonials';
-import LastSection from '@/components/Landingpage/LastSection';
+import LastSection from '@/components/Landingpage/InquireSection';
 
 function Home() {
   return (
