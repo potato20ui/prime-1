@@ -151,7 +151,7 @@ const ExpertisePage = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="flex flex-col bg-white shadow-lg p-8 rounded-xl"
-            style={{ width: "100%", maxWidth: "450px", height: "auto" }}
+            style={{ width: "100%", height: "auto" }}
           >
             <div className="text-left mb-8">
               <h2 className="text-2xl font-bold text-PRIMEblue">Expertise</h2>
